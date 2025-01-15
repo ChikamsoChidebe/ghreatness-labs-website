@@ -1,10 +1,16 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import AppLayout from "./ui/AppLayout";
+import ScrollToTop from "./ui/ScrollToTop";
+
 function App() {
   return (
-    <div>
-      <h1 className="flex items-center justify-center text-4xl font-bold text-red-600">
-        Welcome to Ghreatness Lab
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}></Route>
+      </Routes>
+
+      <ScrollToTop />
+    </BrowserRouter>
   );
 }
 
