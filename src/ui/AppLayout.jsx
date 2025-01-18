@@ -6,7 +6,7 @@ function AppLayout() {
   return (
     <>
       <NavBar />
-      <main>
+      <main className="pt-[4rem]">
         <Outlet />
       </main>
       <Footer />
