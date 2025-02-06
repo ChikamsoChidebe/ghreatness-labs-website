@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowRight } from 'lucide-react';
 import Slider from 'react-slick';
+import ConsultationForm from '../ui/ConsultationForm';
 
 const ProjectCard = ({ title, description }) => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
@@ -202,6 +203,8 @@ const Industries = () => {
     </div>
   </div>
 </section>
+
+<ConsultationForm/>
 
     </div>
   );

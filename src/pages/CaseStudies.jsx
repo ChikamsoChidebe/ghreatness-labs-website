@@ -1,9 +1,10 @@
-import {  Newspaper } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import { useState } from "react";
 import avatar from "../assets/avatar.png";
 import univyx from "../assets/univyx.png";
 import misplaceMe from "../assets/misplaceMe.png";
 import athlegame from "../assets/athlegame.png";
+import ConsultationForm from "../ui/ConsultationForm";
 
 export default function CaseStudies() {
   const [activeTab, setActiveTab] = useState("all");
@@ -11,7 +12,11 @@ export default function CaseStudies() {
   const tabs = [
     { id: "all", label: "All Stories", icon: <Newspaper /> },
     { id: "company", label: "Company's Success Stories", icon: <Newspaper /> },
-    { id: "customer", label: "Customer's Success Stories", icon: <Newspaper /> },
+    {
+      id: "customer",
+      label: "Customer's Success Stories",
+      icon: <Newspaper />,
+    },
     { id: "school", label: "School's Success Stories", icon: <Newspaper /> },
   ];
 
@@ -64,23 +69,61 @@ export default function CaseStudies() {
       </div>
 
       {/* Content Section */}
-      <div className="mx-auto mt-16 max-w-7xl px-6">
+      <div className="bg-stone-100">
+      <div className="mx-auto py-16 max-w-7xl px-6 ">
         {/* Brands Grid */}
-        <div className="mb-12 grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 place-items-center gap-8 sm:grid-cols-2 md:grid-cols-3">
           {brands.map((brand) => (
             <div
               key={brand.id}
-              className="flex items-center justify-center rounded-lg shadow-lg"
+              className="flex h-40 w-40 items-center justify-center"
             >
               <img
                 src={brand.logo || "/placeholder.svg"}
                 alt={brand.name}
-                className="h-16 w-auto"
+                className=""
               />
             </div>
           ))}
         </div>
+
+        <section className="container mx-auto px-4 py-16">
+          <div className="text-center">
+            <h2 className="mb-2 text-3xl font-bold">
+              Research and Development
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            {[1, 2, 3].map((index) => (
+              <div
+                key={index}
+                className={`relative ${index === 2 ? "md:mt-8" : ""}`}
+              >
+                <div className="transform overflow-hidden rounded-lg bg-[#28536B] shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+                  <div className="relative h-[300px]">
+                    <img
+                      src={avatar || "/placeholder.svg"}
+                      alt={`Team member ${index}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div className="p-4 text-white">
+                    <h3 className="mb-2 text-lg font-semibold">John Doe</h3>
+                    <p className="text-sm">
+                      Lead Developer with a passion for technology and
+                      innovation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
+      </div>
+      <ConsultationForm/>
     </div>
   );
 }

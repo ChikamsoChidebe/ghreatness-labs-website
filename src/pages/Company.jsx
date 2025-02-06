@@ -44,19 +44,19 @@ function Company() {
           <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
             <CheckCircle className="w-8 h-8 mb-4" />
             <h3 className="font-semibold mb-2">We Are Committed</h3>
-            <p className="text-center text-sm">To providing top-notch services tailored to your needs.</p>
+            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
           </div>
 
           <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
             <XCircle className="w-8 h-8 mb-4" />
             <h3 className="font-semibold mb-2">We Are Not Just Another Company</h3>
-            <p className="text-center text-sm">We focus on building long-term relationships with our clients.</p>
+            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
           </div>
 
           <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
             <Info className="w-8 h-8 mb-4" />
             <h3 className="font-semibold mb-2">What We Do</h3>
-            <p className="text-center text-sm">Deliver innovative solutions that drive success.</p>
+            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
           </div>
         </div>
       </section>
@@ -76,12 +76,12 @@ function Company() {
                   <img src={avatar || "/placeholder.svg"} alt={`Team member ${index}`} 
                        className="w-full h-full object-cover" />
                 </div>
-                {index === 2 && (
+                
                   <div className="p-4 text-white">
                     <h3 className="text-lg font-semibold mb-2">John Doe</h3>
                     <p className="text-sm">Lead Developer with a passion for technology and innovation.</p>
                   </div>
-                )}
+               
               </div>
             </div>
           ))}
