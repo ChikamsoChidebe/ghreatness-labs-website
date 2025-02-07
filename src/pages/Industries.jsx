@@ -1,164 +1,80 @@
 import React from 'react';
-import ourProjectsCover from "../assets/ourProjectsCover.png";
-import avatar from "../assets/avatar.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { ArrowRight } from 'lucide-react';
-import Slider from 'react-slick';
+import ourProjectsCover from "../assets/ourProjectsCover.png";
 import ConsultationForm from '../ui/ConsultationForm';
+import Testimonials from '../ui/Testimonials';
 
 const ProjectCard = ({ title, description }) => (
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-    <div className="h-48 bg-gray-200 overflow-hidden">
-      <img 
-        src="/api/placeholder/400/300" 
-        alt={title} 
-        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-      />
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-3 text-gray-900">{title}</h3>
-      <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
-      <button className="flex items-center gap-2 text-black font-medium hover:gap-3 transition-all duration-300">
-        Read more <ArrowRight className="h-4 w-4" />
-      </button>
-    </div>
-  </div>
-);
-
-const TestimonialCard = ({ name, role, testimonial }) => (
-  <div className="p-6 bg-white rounded-lg shadow-lg">
-    <div className="flex items-center mb-4">
-      <img src={avatar} alt={name} className="w-16 h-16 rounded-full" />
-      <div className="ml-4">
-        <h4 className="font-bold text-lg text-gray-800">{name}</h4>
-        <p className="text-sm text-gray-500">{role}</p>
-      </div>
-    </div>
-    <p className="text-gray-600">{testimonial}</p>
+  <div className="group relative overflow-hidden rounded-xl bg-gradient-to-b from-gray-800 to-gray-900 p-6 shadow-lg transition-all hover:scale-105 hover:shadow-blue-500/10">
+    <div className="absolute inset-0.5 rounded-xl bg-gradient-to-b from-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+    <h3 className="text-2xl font-bold text-white tracking-tight mb-2">{title}</h3>
+    <p className="text-gray-300 line-clamp-3 mb-4">{description}</p>
+    <button className="relative flex items-center gap-2 text-blue-400 font-medium hover:text-blue-300 transition-all">
+      Read more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </button>
   </div>
 );
 
 const Industries = () => {
   const currentProjects = [
-    {
-      title: "misplace me",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
-    },
-    {
-      title: "univyx",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
-    },
-    {
-      title: "athlegame",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
-    }
+    { title: "misplaceMe", description: "Innovative mobile solutions for everyday challenges." },
+    { title: "univyx", description: "A web platform transforming digital experiences." },
+    { title: "athlegame", description: "Scalable desktop applications for performance tracking." }
   ];
 
   const upcomingProjects = [
-    {
-      title: "Project Alpha",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      title: "Project Beta",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      title: "Project Gamma",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    }
+    { title: "Project Alpha", description: "Revolutionizing business analytics with AI-driven insights." },
+    { title: "Project Beta", description: "Next-gen cloud solutions for enterprises." },
+    { title: "Project Gamma", description: "Cutting-edge security solutions for modern threats." }
   ];
-
-  const testimonials = [
-    {
-      name: "Robert Jackson",
-      role: "CEO, TechCorp",
-      testimonial:
-        "Working with Greatness Labs has been a game-changer for our business. Their expertise in cloud solutions helped us seamlessly migrate our systems.",
-    },
-    {
-      name: "Sarah Johnson",
-      role: "Product Manager, InnovateX",
-      testimonial:
-        "Their user interface and experience design for our platform were flawless. Our customers love the new design, and so do we!",
-    },
-    {
-      name: "Emily Davis",
-      role: "IT Director, SecureTech",
-      testimonial:
-        "We faced constant cyber threats until Greatness Labs stepped in. Their cybersecurity solutions safeguarded our data and strengthened our defenses.",
-    },
-    {
-      name: "Michael Brown",
-      role: "CTO, FutureLab",
-      testimonial:
-        "Greatness Labs delivered cutting-edge technology that boosted our efficiency and reduced costs. They're more than a vendor—they're a partner.",
-    },
-    {
-      name: "Jessica Wilson",
-      role: "Founder, StartupWorks",
-      testimonial:
-        "Their commitment to understanding our business needs set them apart. The solutions they provided drove our success to the next level.",
-    },
-    {
-      name: "John Smith",
-      role: "Operations Head, GlobeNet",
-      testimonial:
-        "Our collaboration with Greatness Labs resulted in a seamless infrastructure transformation. Their professionalism is unmatched.",
-    },
-  ];
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden">
-        <img 
-          src={ourProjectsCover}
-          alt="Our Projects Cover"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50">
-          <div className="container mx-auto px-6 h-full flex flex-col justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Our Projects
-            </h1>
-            <p className="text-xl text-gray-200 max-w-2xl">
-              We are proud to show what we have done
-            </p>
-          </div>
-        </div>
-      </div>
+       <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+             <div className="absolute inset-0 bg-[url('/api/placeholder/20/20')] opacity-10"></div>
+             <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+               <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+                 <div className="flex flex-col justify-center">
+                   <div className="inline-flex items-center rounded-full bg-blue-600/10 px-4 py-2 text-sm font-medium text-blue-400">
+                     <span className="mr-2">✨</span>  Driving Innovation Across Industries
+                   </div>
+                   <h1 className="mt-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+                   Transforming Ideas into Reality
+                   </h1>
+                   <p className="mt-6 text-xl text-gray-300">
+                   Explore our industry-leading projects and innovative solutions that drive success in a rapidly evolving world.
+                   </p>
+                   <div className="mt-8 flex items-center gap-4">
+                     <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
+                       Get Started
+                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                     </button>
+                     <button className="inline-flex items-center justify-center rounded-lg border border-white/20 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-white/10">
+                       Learn More
+                     </button>
+                   </div>
+                 </div>
+                 <div className="relative">
+                   <div className="relative rounded-lg bg-white/5 p-2 backdrop-blur-sm">
+                     <img 
+                       src={ourProjectsCover} 
+                       alt="Hero illustration" 
+                       className="rounded-lg shadow-2xl ring-1 ring-white/10"
+                     />
+                     <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-lg bg-blue-600/20 backdrop-blur-sm"></div>
+                     <div className="absolute -right-4 -top-4 h-24 w-24 rounded-lg bg-purple-600/20 backdrop-blur-sm"></div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
 
       {/* Current Projects Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-100">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Featured Projects</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {currentProjects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -167,45 +83,20 @@ const Industries = () => {
       </section>
 
       {/* Upcoming Projects Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">
-            Our Next Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-24 bg-gray-900">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">Our Next Projects</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingProjects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
           </div>
         </div>
       </section>
-       {/* Testimonial Section */}
-       <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
-  <div className="container mx-auto px-6">
-    <div className="text-center max-w-2xl mx-auto">
-      <p className="text-lg text-gray-600 font-medium mb-6">
-        At <span className="text-[#00ACFF] font-semibold">Greatness Labs</span>, we pride ourselves on delivering cutting-edge technology solutions that drive success. But don’t just take our word for it—hear what our clients have to say!
-      </p>
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-12">
-        What Our Clients Say
-      </h2>
-    </div>
-    <div className="relative">
-      <Slider {...sliderSettings}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="px-4">
-            <TestimonialCard {...testimonial} />
-          </div>
-        ))}
-      </Slider>
-      <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-gray-100 to-transparent pointer-events-none"></div>
-      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-gray-100 to-transparent pointer-events-none"></div>
-    </div>
-  </div>
-</section>
 
-<ConsultationForm/>
-
+      {/* Testimonials Section */}
+      <Testimonials />
+      <ConsultationForm />
     </div>
   );
 };

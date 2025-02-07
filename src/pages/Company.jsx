@@ -1,115 +1,164 @@
+import React from 'react';
+import { CheckCircle, XCircle, Info, Users, ArrowRight } from 'lucide-react';
 import aboutCover from "../assets/aboutCover.png";
 import avatar from "../assets/avatar.png";
-import { CheckCircle, XCircle, Info, Users } from 'lucide-react';
 
-function Company() {
+const Company = () => {
+  const teamMembers = [
+    {
+      name: "John Doe",
+      role: "Lead Developer",
+      description: "Lead Developer with a passion for technology and innovation.",
+      image:avatar
+    },
+    {
+      name: "Jane Smith",
+      role: "UX Designer",
+      description: "Creative designer focused on delivering exceptional user experiences.",
+      image:avatar
+    },
+    {
+      name: "Mike Johnson",
+      role: "Project Manager",
+      description: "Experienced manager dedicated to delivering successful projects.",
+      image:avatar
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Welcome Section */}
-      <section className="px-4 py-12 text-center e">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Our Company</h1>
-        <p className="max-w-2xl mx-auto text-lg">
-          We are dedicated to delivering exceptional services and creating lasting relationships with our clients.
-        </p>
-      </section>
-
-      {/* About Us Section */}
-      <section className="relative">
-        <div className="bg-[#28536B]">
-          <div className="container mx-auto px-4 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="text-white">
-                <h2 className="text-3xl font-bold mb-6">About Us</h2>
-                <p className="mb-4">
-                  Our mission is to provide innovative solutions that help businesses thrive in a competitive landscape. 
-                  We leverage technology and expertise to deliver results that exceed expectations.
-                </p>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <div className="absolute inset-0 bg-[url('/api/placeholder/20/20')] opacity-10"></div>
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <div className="flex flex-col justify-center">
+              <div className="inline-flex items-center rounded-full bg-blue-600/10 px-4 py-2 text-sm font-medium text-blue-400">
+                <span className="mr-2">👋</span> Welcome to Our Company
               </div>
-              <div className="relative h-[300px]">
-                <img
-                  src={aboutCover || "/placeholder.svg"}
-                  alt="Laptop with UI interface"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+              <h1 className="mt-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
+                Building the Future Together
+              </h1>
+              <p className="mt-6 text-xl text-gray-300">
+                We are dedicated to delivering exceptional services and creating lasting relationships with our clients through innovative solutions.
+              </p>
+              <div className="mt-8 flex items-center gap-4">
+                <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="relative rounded-lg bg-white/5 p-2 backdrop-blur-sm">
+                <img 
+                  src={aboutCover}
+                  alt="Company overview" 
+                  className="rounded-lg shadow-2xl ring-1 ring-white/10"
                 />
+                <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-lg bg-blue-600/20 backdrop-blur-sm"></div>
+                <div className="absolute -right-4 -top-4 h-24 w-24 rounded-lg bg-purple-600/20 backdrop-blur-sm"></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 mt-20">
-        <h2 className="text-center text-3xl font-bold mb-8">What We Offer</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
-            <CheckCircle className="w-8 h-8 mb-4" />
-            <h3 className="font-semibold mb-2">We Are Committed</h3>
-            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
-          </div>
+      <div className="relative -mt-16 bg-transparent">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <div className="transform rounded-xl bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
+                <CheckCircle className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">We Are Committed</h3>
+              <p className="mt-4 text-gray-600">Delivering innovative solutions that help businesses thrive in a competitive landscape.</p>
+            </div>
 
-          <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
-            <XCircle className="w-8 h-8 mb-4" />
-            <h3 className="font-semibold mb-2">We Are Not Just Another Company</h3>
-            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
-          </div>
+            <div className="transform rounded-xl bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
+                <XCircle className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Not Just Another Company</h3>
+              <p className="mt-4 text-gray-600">We stand out through our dedication to excellence and customer satisfaction.</p>
+            </div>
 
-          <div className="bg-[#28536B] text-white rounded-lg shadow-lg p-6">
-            <Info className="w-8 h-8 mb-4" />
-            <h3 className="font-semibold mb-2">What We Do</h3>
-            <p className="text-center text-sm">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nisi quia doloremque, soluta eum aliquam temporibus ipsam veritatis tempore placeat veniam repellat ducimus quas pariatur, reiciendis maiores eos rerum accusamus!</p>
+            <div className="transform rounded-xl bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100">
+                <Info className="h-6 w-6 text-emerald-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">What We Do</h3>
+              <p className="mt-4 text-gray-600">Leveraging technology and expertise to deliver results that exceed expectations.</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Team Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-2">Meet Our Team</h2>
-          <p className="text-gray-600 mb-8">Get to know the professionals behind our success.</p>
-        </div>
+      <div className="bg-gradient-to-b from-gray-900 to-gray-800 py-24 mt-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block rounded-full bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-400 mb-6">
+              Our Team
+            </span>
+            <h2 className="text-4xl font-bold text-white sm:text-5xl tracking-tight">
+              Meet the Experts
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-xl text-gray-300">
+              Get to know the professionals behind our success
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((index) => (
-            <div key={index} className={`relative ${index === 2 ? "md:mt-8" : ""}`}>
-              <div className="bg-[#28536B] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-[1.02] duration-300">
-                <div className="relative h-[300px]">
-                  <img src={avatar || "/placeholder.svg"} alt={`Team member ${index}`} 
-                       className="w-full h-full object-cover" />
-                </div>
-                
-                  <div className="p-4 text-white">
-                    <h3 className="text-lg font-semibold mb-2">John Doe</h3>
-                    <p className="text-sm">Lead Developer with a passion for technology and innovation.</p>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-2xl transition-all duration-300 hover:scale-102 hover:shadow-blue-500/10">
+                <div className="absolute inset-0.5 rounded-2xl bg-gradient-to-b from-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="relative p-1">
+                  <div className="relative overflow-hidden rounded-xl">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90" />
                   </div>
-               
+                  <div className="relative p-6">
+                    <h3 className="text-2xl font-bold text-white tracking-tight mb-2">{member.name}</h3>
+                    <p className="text-blue-400 mb-4">{member.role}</p>
+                    <p className="text-gray-300">{member.description}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Meet Our Team Section */}
-      <section className="bg-gray-50 py-16 px-4">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
-          <p className="mb-4 text-gray-600">Stay updated with our latest news and offers!</p>
-          <div className="max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-[#28536B]"
-            />
-            <button 
-              onClick={() => alert('Thank you for subscribing!')} 
-              className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Subscribe Now
-            </button>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Newsletter Section */}
+      <div className="bg-gray-50 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">Join Our Community</h2>
+            <p className="text-xl text-gray-600 mb-8">Stay updated with our latest news and offers!</p>
+            <div className="max-w-md mx-auto">
+              <div className="flex gap-4">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
+                  Subscribe
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Company;
