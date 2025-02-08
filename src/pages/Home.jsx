@@ -5,6 +5,11 @@ import Testimonials from "../ui/Testimonials";
 import univyx from "../assets/univyx.png";
 import misplaceMe from "../assets/misplaceMe.png";
 import athlegame from "../assets/athlegame.png";
+import uiIllustration from "../assets/uiIllustration.png";
+import webIllustration from "../assets/webIllustration.png";
+import securityImg from "../assets/securityImg.png"
+import mobileIllustration from "../assets/mobileIllustration.png"
+
 
 const Home = () => {
   const stats = [
@@ -38,25 +43,25 @@ const Home = () => {
     {
       title: "UI/UX Design",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: "/api/placeholder/400/300",
+      image: uiIllustration,
       bgColor: "bg-blue-50"
     },
     {
       title: "Web Development",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: "/api/placeholder/400/300",
+      image: webIllustration,
       bgColor: "bg-purple-50"
     },
     {
       title: "Security Solutions",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: "/api/placeholder/400/300",
-      bgColor: "bg-emerald-50"
+      image: securityImg,
+      bgColor: "bg-green-50"
     },
     {
       title: "Mobile Development",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: "/api/placeholder/400/300",
+      image: mobileIllustration,
       bgColor: "bg-orange-50"
     }
   ];
@@ -121,7 +126,7 @@ const Home = () => {
             <div className="relative">
               <div className="relative rounded-lg bg-white/5 p-2 backdrop-blur-sm">
                 <img 
-                  src="/api/placeholder/600/400" 
+                  src={uiIllustration}
                   alt="Hero illustration" 
                   className="rounded-lg shadow-2xl ring-1 ring-white/10"
                 />
