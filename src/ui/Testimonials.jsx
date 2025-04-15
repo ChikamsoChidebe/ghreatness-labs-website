@@ -1,7 +1,8 @@
-import avatar from "../assets/avatar.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import PropTypes from "prop-types";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import avatar from "../assets/avatar.png";
 
 function Testimonials() {
   const testimonials = [
@@ -75,8 +76,8 @@ function Testimonials() {
             At{" "}
             <span className="font-semibold text-[#00ACFF]">Greatness Labs</span>
             , we pride ourselves on delivering cutting-edge technology solutions
-            that drive success. But don’t just take our word for it—hear what
-            our clients have to say!
+            that drive success. But don&apos;t just take our word for it—hear
+            what our clients have to say!
           </p>
           <h2 className="mb-12 text-4xl font-extrabold text-gray-900">
             What Our Clients Say
@@ -99,16 +100,26 @@ function Testimonials() {
 }
 
 const TestimonialCard = ({ name, role, testimonial }) => (
-  <div className="rounded-lg bg-white p-8 shadow-lg transform transition-transform duration-300 hover:scale-105">
+  <div className="transform rounded-lg bg-white p-8 shadow-lg transition-transform duration-300 hover:scale-105">
     <div className="mb-6 flex items-center">
-      <img src={avatar} alt={name} className="h-16 w-16 rounded-full object-cover" />
+      <img
+        src={avatar}
+        alt={name}
+        className="h-16 w-16 rounded-full object-cover"
+      />
       <div className="ml-4">
         <h4 className="text-xl font-bold text-gray-800">{name}</h4>
         <p className="text-sm text-gray-500">{role}</p>
       </div>
     </div>
-    <p className="text-gray-600 italic">"{testimonial}"</p>
+    <p className="italic text-gray-600">{`"${testimonial}"`}</p>
   </div>
 );
+
+TestimonialCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  testimonial: PropTypes.string.isRequired,
+};
 
 export default Testimonials;
