@@ -2,11 +2,11 @@ import { ArrowRight, Award, ChevronRight, Globe, Users } from "lucide-react";
 import PropTypes from "prop-types";
 import athlegame from "../assets/athlegame.png";
 import misplaceMe from "../assets/misplaceMe.png";
-import mobileIllustration from "../assets/mobileIllustration.png";
-import securityImg from "../assets/securityImg.png";
-import uiIllustration from "../assets/uiIllustration.png";
+import mobileIllustration from "../assets/mobileIllustration.jpg";
+import securityImg from "../assets/securityImg.jpg";
+import uiIllustration from "../assets/uiIllustration.jpg";
 import univyx from "../assets/univyx.png";
-import webIllustration from "../assets/webIllustration.png";
+import webIllustration from "../assets/webIllustration.jpg";
 import ConsultationForm from "../ui/ConsultationForm";
 import Testimonials from "../ui/Testimonials";
 

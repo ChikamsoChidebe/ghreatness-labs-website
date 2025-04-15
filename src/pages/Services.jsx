@@ -1,6 +1,6 @@
-import securityImg from "../assets/securityImg.png";
-import uiIllustration from "../assets/uiIllustration.png";
-import webIllustration from "../assets/webIllustration.png";
+import securityImg from "../assets/securityImg.jpg";
+import uiIllustration from "../assets/uiIllustration.jpg";
+import webIllustration from "../assets/webIllustration.jpg";
 
 const Services = () => {
   const services = [
