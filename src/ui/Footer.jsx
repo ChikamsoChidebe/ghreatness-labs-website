@@ -1,35 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Youtube, Linkedin, ArrowUp, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import {
+  ArrowUp,
+  ExternalLink,
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerLinks = {
-    Industries: ['Our Projects', 'Next Projects', 'Testimonials'],
-    Services: ['UI UX Design', 'Frontend Development', 'Backend Development', 'Cyber Security', 'Video Editing'],
-    Company: ['About Us', 'Our Leaders', 'Meet Our Team'],
-    'Case Studies': ['Misplace Me', 'univyx', 'athlegame']
+    Industries: ["Our Projects", "Next Projects", "Testimonials"],
+    Services: [
+      "UI UX Design",
+      "Frontend Development",
+      "Backend Development",
+      "Cyber Security",
+      "Video Editing",
+    ],
+    Company: ["About Us", "Our Leaders", "Meet Our Team"],
+    "Case Studies": ["Misplace Me", "univyx", "athlegame"],
   };
 
   return (
     <footer className="relative bg-gradient-to-b from-gray-900 to-gray-950 text-white">
       <div className="absolute inset-0 bg-[url('/api/placeholder/20/20')] opacity-5"></div>
-      
-      {/* Main Footer Content */}
+
       <div className="relative">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="pt-24 pb-12">
-            {/* Navigation Links */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4 mb-16">
+          <div className="pb-12 pt-24">
+            <div className="mb-16 grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category} className="relative">
-                  <div className="absolute -left-4 top-0 h-8 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full opacity-50"></div>
-                  <h3 className="font-semibold text-xl mb-6 text-white">{category}</h3>
+                  <div className="absolute -left-4 top-0 h-8 w-1 rounded-full bg-gradient-to-b from-blue-500 to-purple-500 opacity-50"></div>
+                  <h3 className="mb-6 text-xl font-semibold text-white">
+                    {category}
+                  </h3>
                   <ul className="space-y-4">
                     {links.map((link) => (
                       <li key={link}>
-                        <Link 
-                          to="/" 
-                          className="group flex items-center text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                        <Link
+                          to="/"
+                          className="group flex items-center text-sm text-gray-400 transition-colors duration-200 hover:text-white"
                         >
                           {link}
                           <ExternalLink className="ml-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -41,32 +56,35 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Office Information */}
-            <div className="border-t border-white/10 pt-12 mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="mb-12 border-t border-white/10 pt-12">
+              <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
                 <div>
-                  <h3 className="font-semibold text-xl mb-6 flex items-center gap-2">
+                  <h3 className="mb-6 flex items-center gap-2 text-xl font-semibold">
                     <MapPin className="h-5 w-5 text-blue-400" />
                     Our Offices
                   </h3>
-                  <div className="mb-6 bg-white/5 rounded-xl p-6 backdrop-blur-sm">
-                    <h4 className="font-medium text-lg mb-3 text-white">Nigeria</h4>
-                    <p className="text-gray-400 mb-2">Bell University Of Technology</p>
+                  <div className="mb-6 rounded-xl bg-white/5 p-6 backdrop-blur-sm">
+                    <h4 className="mb-3 text-lg font-medium text-white">
+                      Nigeria
+                    </h4>
+                    <p className="mb-2 text-gray-400">
+                      Bell University Of Technology
+                    </p>
                     <p className="text-gray-400">Ota Ogun State</p>
                   </div>
                 </div>
-                
+
                 <div>
-                  <h3 className="font-semibold text-xl mb-6 flex items-center gap-2">
+                  <h3 className="mb-6 flex items-center gap-2 text-xl font-semibold">
                     <Phone className="h-5 w-5 text-blue-400" />
                     Contact Details
                   </h3>
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-gray-400 bg-white/5 rounded-lg p-4 backdrop-blur-sm">
+                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm">
                       <Phone className="h-4 w-4 text-blue-400" />
                       <p>+234 812300 00 00</p>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-400 bg-white/5 rounded-lg p-4 backdrop-blur-sm">
+                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm">
                       <Mail className="h-4 w-4 text-blue-400" />
                       <p>ghreatlnesslabs@gmail.com</p>
                     </div>
@@ -75,10 +93,9 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Scroll to Top */}
             <div className="flex justify-end">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="group relative"
                 aria-label="Scroll to top"
               >
@@ -92,28 +109,36 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright and Social Links */}
         <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8">
+          <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
               <div className="space-y-4 text-sm text-gray-400">
                 <p>© 2024 GHREATNESS LABS Inc. All Rights Reserved.</p>
                 <div className="flex gap-6">
-                  <Link to="/privacy" className="hover:text-white transition-colors duration-200">
+                  <Link
+                    to="/privacy"
+                    className="transition-colors duration-200 hover:text-white"
+                  >
                     Privacy Policy
                   </Link>
-                  <Link to="/cookies" className="hover:text-white transition-colors duration-200">
+                  <Link
+                    to="/cookies"
+                    className="transition-colors duration-200 hover:text-white"
+                  >
                     Cookies Policy
                   </Link>
                 </div>
-                <p className="text-xs">This site is protected by reCAPTCHA and the Google Privacy and Terms of Service apply.</p>
+                <p className="text-xs">
+                  This site is protected by reCAPTCHA and the Google Privacy and
+                  Terms of Service apply.
+                </p>
               </div>
-              
+
               <div className="flex items-center gap-6">
                 {[Facebook, Twitter, Youtube, Linkedin].map((Icon, index) => (
-                  <a 
+                  <a
                     key={index}
-                    href="#" 
+                    href="#"
                     className="group relative p-2 hover:text-white"
                     aria-label={`Visit our ${Icon.name} page`}
                   >

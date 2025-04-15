@@ -1,5 +1,4 @@
-import React from 'react';
-import { CheckCircle, XCircle, Info, Users, ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle, Info, XCircle } from "lucide-react";
 import aboutCover from "../assets/aboutCover.png";
 import avatar from "../assets/avatar.png";
 
@@ -8,26 +7,28 @@ const Company = () => {
     {
       name: "John Doe",
       role: "Lead Developer",
-      description: "Lead Developer with a passion for technology and innovation.",
-      image:avatar
+      description:
+        "Lead Developer with a passion for technology and innovation.",
+      image: avatar,
     },
     {
       name: "Jane Smith",
       role: "UX Designer",
-      description: "Creative designer focused on delivering exceptional user experiences.",
-      image:avatar
+      description:
+        "Creative designer focused on delivering exceptional user experiences.",
+      image: avatar,
     },
     {
       name: "Mike Johnson",
       role: "Project Manager",
-      description: "Experienced manager dedicated to delivering successful projects.",
-      image:avatar
-    }
+      description:
+        "Experienced manager dedicated to delivering successful projects.",
+      image: avatar,
+    },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="absolute inset-0 bg-[url('/api/placeholder/20/20')] opacity-10"></div>
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -40,7 +41,9 @@ const Company = () => {
                 Building the Future Together
               </h1>
               <p className="mt-6 text-xl text-gray-300">
-                We are dedicated to delivering exceptional services and creating lasting relationships with our clients through innovative solutions.
+                We are dedicated to delivering exceptional services and creating
+                lasting relationships with our clients through innovative
+                solutions.
               </p>
               <div className="mt-8 flex items-center gap-4">
                 <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
@@ -51,9 +54,9 @@ const Company = () => {
             </div>
             <div className="relative">
               <div className="relative rounded-lg bg-white/5 p-2 backdrop-blur-sm">
-                <img 
+                <img
                   src={aboutCover}
-                  alt="Company overview" 
+                  alt="Company overview"
                   className="rounded-lg shadow-2xl ring-1 ring-white/10"
                 />
                 <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-lg bg-blue-600/20 backdrop-blur-sm"></div>
@@ -64,7 +67,6 @@ const Company = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="relative -mt-16 bg-transparent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
@@ -72,37 +74,51 @@ const Company = () => {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
                 <CheckCircle className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">We Are Committed</h3>
-              <p className="mt-4 text-gray-600">Delivering innovative solutions that help businesses thrive in a competitive landscape.</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                We Are Committed
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Delivering innovative solutions that help businesses thrive in a
+                competitive landscape.
+              </p>
             </div>
 
             <div className="transform rounded-xl bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100">
                 <XCircle className="h-6 w-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">Not Just Another Company</h3>
-              <p className="mt-4 text-gray-600">We stand out through our dedication to excellence and customer satisfaction.</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                Not Just Another Company
+              </h3>
+              <p className="mt-4 text-gray-600">
+                We stand out through our dedication to excellence and customer
+                satisfaction.
+              </p>
             </div>
 
             <div className="transform rounded-xl bg-white p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-100">
                 <Info className="h-6 w-6 text-emerald-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">What We Do</h3>
-              <p className="mt-4 text-gray-600">Leveraging technology and expertise to deliver results that exceed expectations.</p>
+              <h3 className="text-xl font-semibold text-gray-900">
+                What We Do
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Leveraging technology and expertise to deliver results that
+                exceed expectations.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="bg-gradient-to-b from-gray-900 to-gray-800 py-24 mt-24">
+      <div className="mt-24 bg-gradient-to-b from-gray-900 to-gray-800 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block rounded-full bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-400 mb-6">
+          <div className="mb-16 text-center">
+            <span className="mb-6 inline-block rounded-full bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-400">
               Our Team
             </span>
-            <h2 className="text-4xl font-bold text-white sm:text-5xl tracking-tight">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Meet the Experts
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-xl text-gray-300">
@@ -112,7 +128,10 @@ const Company = () => {
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-2xl transition-all duration-300 hover:scale-102 hover:shadow-blue-500/10">
+              <div
+                key={index}
+                className="hover:scale-102 group relative overflow-hidden rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-2xl transition-all duration-300 hover:shadow-blue-500/10"
+              >
                 <div className="absolute inset-0.5 rounded-2xl bg-gradient-to-b from-white/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="relative p-1">
                   <div className="relative overflow-hidden rounded-xl">
@@ -124,8 +143,10 @@ const Company = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/90" />
                   </div>
                   <div className="relative p-6">
-                    <h3 className="text-2xl font-bold text-white tracking-tight mb-2">{member.name}</h3>
-                    <p className="text-blue-400 mb-4">{member.role}</p>
+                    <h3 className="mb-2 text-2xl font-bold tracking-tight text-white">
+                      {member.name}
+                    </h3>
+                    <p className="mb-4 text-blue-400">{member.role}</p>
                     <p className="text-gray-300">{member.description}</p>
                   </div>
                 </div>
@@ -135,18 +156,21 @@ const Company = () => {
         </div>
       </div>
 
-      {/* Newsletter Section */}
       <div className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">Join Our Community</h2>
-            <p className="text-xl text-gray-600 mb-8">Stay updated with our latest news and offers!</p>
-            <div className="max-w-md mx-auto">
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl">
+              Join Our Community
+            </h2>
+            <p className="mb-8 text-xl text-gray-600">
+              Stay updated with our latest news and offers!
+            </p>
+            <div className="mx-auto max-w-md">
               <div className="flex gap-4">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
                   Subscribe
