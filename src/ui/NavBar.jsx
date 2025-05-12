@@ -7,6 +7,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const nav = [
     "Home",
+    "About",
     "Industries",
     "Services",
     "Company",
@@ -27,7 +28,7 @@ const NavBar = () => {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 bg-white shadow-md">
-      <div className="relative z-50 flex items-center justify-between bg-white px-6 py-4 shadow-lg md:px-10">
+      <div className="relative z-50 flex items-center justify-between bg-white px-2 py-3 shadow-lg md:px-10">
         <div className="relative z-50 flex items-center">
           <img
             src={GhreatnessLabsLogo}
@@ -98,6 +99,10 @@ const NavBar = () => {
               {item}
             </NavLink>
           ))}
+        </div>
+        <div className="lg:hidden md:flex h-full flex-col items-center space-y-6 overflow-y-auto p-6 pt-24">
+          <a href="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-2 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">Sign In</a>
+          <a href="inline-flex items-center justify-center rounded-lg border border-white/20 px-2 py-3 ml-2 text-lg font-semibold text-white bg-gray-600 transition-all hover:bg-blue-400">Create an Account</a>
         </div>
       </div>
     </nav>

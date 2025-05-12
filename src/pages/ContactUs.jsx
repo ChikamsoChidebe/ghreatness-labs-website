@@ -1,10 +1,34 @@
 import { Mail, MapPin, Phone, Star } from "lucide-react";
 import bellsUni from "../assets/bellsUni.png";
+import { useState } from "react";
+
 
 export default function ContactUs() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  
+  const [result, setResult] = useState("");
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      setResult("Sending....");
+      const formData = new FormData(event.target);
+  
+      formData.append("access_key", "f3f3441f-e5d2-4d73-a33d-047c9388a7e2");
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    };
 
   return (
     <div className="min-h-screen">
@@ -55,13 +79,13 @@ export default function ContactUs() {
               <MapPin className="h-6 w-6 text-gray-700" />
               <p className="text-gray-800">Bell University, Ota, Ogun State</p>
             </div>
-            <div className="flex items-center gap-3">
-              <Phone className="h-6 w-6 text-gray-700" />
-              <p className="text-gray-800">+234 812 300 0000</p>
+            <div className="flex items-center gap-3 cursor-pointer">
+                <Phone className="h-6 w-6 text-gray-700" />
+                <a href="tel:+2348164816721" className="text-gray-800">+234 816-481-6721</a>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 cursor-pointer">
               <Mail className="h-6 w-6 text-gray-700" />
-              <p className="text-gray-800">gksamission@gmail.com</p>
+              <a href="mailto:ghreatnessmanagement@gmal.com" className="text-gray-800"> ghreatnessmanagement@gmal.com</a>
             </div>
           </div>
 
@@ -91,10 +115,11 @@ export default function ContactUs() {
             ></textarea>
             <button
               type="submit"
-              className="w-full rounded-md bg-black px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-gray-800"
+              className="w-full rounded-md bg-black px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-gray-800 mb-4"
             >
               Send Message
             </button>
+            <span className="text-lg text-black font-bold mt-2">{result}</span>
           </form>
         </div>
       </div>

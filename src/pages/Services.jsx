@@ -1,41 +1,15 @@
-import securityImg from "../assets/securityImg.jpg";
-import uiIllustration from "../assets/uiIllustration.jpg";
-import webIllustration from "../assets/webIllustration.jpg";
+
+import { ourservices } from "../constant/ConstantData";
+import { useState } from "react";
 
 const Services = () => {
-  const services = [
-    {
-      title: "UI/UX DESIGN",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat.",
-      image: uiIllustration,
-    },
-    {
-      title: "FRONTEND DEVELOPMENT",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat.",
-      image: webIllustration,
-    },
-    {
-      title: "BACKEND DEVELOPMENT",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat.",
-      image: webIllustration,
-    },
-    {
-      title: "CYBER SECURITY",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat.",
-      image: securityImg,
-    },
-  ];
 
   return (
     <>
       <ContactForm />
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="space-y-24">
-          {services.map((service, index) => (
+          {ourservices.map((service, index) => (
             <div
               key={index}
               className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}
@@ -51,7 +25,7 @@ const Services = () => {
                 <h3 className="text-2xl font-bold text-gray-900">
                   {service.title}
                 </h3>
-                <p className="leading-relaxed text-gray-600">
+                <p className="leading-relaxed text-gray-600 text-justify">
                   {service.description}
                 </p>
               </div>
@@ -66,10 +40,35 @@ const Services = () => {
 export default Services;
 
 const ContactForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
+  const [result, setResult] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "f3f3441f-e5d2-4d73-a33d-047c9388a7e2");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle form submission
+  // };
 
   return (
     <section className="bg-gradient-to-br from-gray-900 to-gray-800 px-4 py-16">
@@ -186,6 +185,7 @@ const ContactForm = () => {
             </button>
           </div>
         </form>
+        <span className="text-lg text-gray-300">{result}</span>
       </div>
     </section>
   );

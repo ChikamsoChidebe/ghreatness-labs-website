@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import ScrollToTop from "./ui/ScrollToTop";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import Industries from "./pages/Industries";
 import Services from "./pages/Services";
 import Company from "./pages/Company";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
         <Route index element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/services" element={<Services />} />
         <Route path="/company" element={<Company />} />

@@ -1,15 +1,16 @@
 import { ArrowRight, CheckCircle, Info, XCircle } from "lucide-react";
 import aboutCover from "../assets/aboutCover.png";
 import avatar from "../assets/avatar.png";
+import olamide from "../assets/OlamideTunde.jpg"
 
 const Company = () => {
   const teamMembers = [
     {
-      name: "John Doe",
+      name: "Olamide Tunde",
       role: "Lead Developer",
       description:
         "Lead Developer with a passion for technology and innovation.",
-      image: avatar,
+      image: olamide,
     },
     {
       name: "Jane Smith",

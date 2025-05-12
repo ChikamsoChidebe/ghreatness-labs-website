@@ -1,15 +1,12 @@
 import {
   ArrowUp,
   ExternalLink,
-  Facebook,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
-  Youtube,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { social } from "../constant/ConstantData";
 
 const Footer = () => {
   const footerLinks = {
@@ -42,13 +39,13 @@ const Footer = () => {
                   <ul className="space-y-4">
                     {links.map((link) => (
                       <li key={link}>
-                        <Link
-                          to="/"
+                        <a
+                          href="#"
                           className="group flex items-center text-sm text-gray-400 transition-colors duration-200 hover:text-white"
                         >
                           {link}
                           <ExternalLink className="ml-1 h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -80,13 +77,17 @@ const Footer = () => {
                     Contact Details
                   </h3>
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm">
-                      <Phone className="h-4 w-4 text-blue-400" />
-                      <p>+234 812300 00 00</p>
+                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm cursor-pointer">
+                      <a href="tel:+2347037326735" className="flex items-center">
+                        <Phone className="h-4 w-4 text-blue-400 mr-2" />
+                        <p>+234 703-732-6735</p>
+                      </a>
                     </div>
-                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm">
-                      <Mail className="h-4 w-4 text-blue-400" />
-                      <p>ghreatlnesslabs@gmail.com</p>
+                    <div className="flex items-center gap-3 rounded-lg bg-white/5 p-4 text-gray-400 backdrop-blur-sm cursor-pointer">
+                      <a href="mailto:ghreatnessmanagement@gmal.com" className="flex items-center">
+                        <Mail className="h-4 w-4 text-blue-400 mr-2" />
+                        <p>laboratory@ghreatnesslabs.com.ng</p>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -135,15 +136,15 @@ const Footer = () => {
               </div>
 
               <div className="flex items-center gap-6">
-                {[Facebook, Twitter, Youtube, Linkedin].map((Icon, index) => (
+                {social.map((Icon, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={Icon.href}
                     className="group relative p-2 hover:text-white"
                     aria-label={`Visit our ${Icon.name} page`}
                   >
                     <div className="absolute inset-0 rounded-lg bg-white/10 opacity-0 transition-opacity group-hover:opacity-100" />
-                    <Icon className="h-5 w-5 text-gray-400 transition-colors group-hover:text-white" />
+                    <Icon.icon className="h-5 w-5 text-gray-400 transition-colors group-hover:text-white" />
                   </a>
                 ))}
               </div>

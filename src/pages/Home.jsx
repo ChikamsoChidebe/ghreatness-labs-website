@@ -1,99 +1,11 @@
-import { ArrowRight, Award, ChevronRight, Globe, Users } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { stats, services, caseStudies} from "../constant/ConstantData";
 import PropTypes from "prop-types";
-import athlegame from "../assets/athlegame.png";
-import misplaceMe from "../assets/misplaceMe.png";
-import mobileIllustration from "../assets/mobileIllustration.jpg";
-import securityImg from "../assets/securityImg.jpg";
-import uiIllustration from "../assets/uiIllustration.jpg";
-import univyx from "../assets/univyx.png";
-import webIllustration from "../assets/webIllustration.jpg";
+import uiIllustration from "../assets/uiIllustration.png"
 import ConsultationForm from "../ui/ConsultationForm";
 import Testimonials from "../ui/Testimonials";
 
 const Home = () => {
-  const stats = [
-    {
-      label: "Leading The Change In Tech Innovation",
-      value: "",
-      icon: Award,
-      color: "text-blue-600",
-    },
-    {
-      label: "million users worldwide",
-      value: "10.5",
-      icon: Globe,
-      color: "text-emerald-600",
-    },
-    {
-      label: "industry experts",
-      value: "50",
-      icon: Users,
-      color: "text-purple-600",
-    },
-    {
-      label: "years of experience",
-      value: "2",
-      icon: Award,
-      color: "text-orange-600",
-    },
-  ];
-
-  const services = [
-    {
-      title: "UI/UX Design",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: uiIllustration,
-      bgColor: "bg-blue-50",
-    },
-    {
-      title: "Web Development",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: webIllustration,
-      bgColor: "bg-purple-50",
-    },
-    {
-      title: "Security Solutions",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: securityImg,
-      bgColor: "bg-green-50",
-    },
-    {
-      title: "Mobile Development",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      image: mobileIllustration,
-      bgColor: "bg-orange-50",
-    },
-  ];
-
-  const caseStudies = [
-    {
-      id: 1,
-      title: "misplaceMe",
-      logo: misplaceMe,
-      description: "Innovative solutions for modern challenges",
-      image: misplaceMe,
-      category: "Mobile App",
-      stats: { users: "50K+", rating: "4.8" },
-    },
-    {
-      id: 2,
-      title: "univyx",
-      logo: univyx,
-      description: "Transforming user experiences",
-      image: univyx,
-      category: "Web Platform",
-      stats: { users: "100K+", rating: "4.9" },
-    },
-    {
-      id: 3,
-      title: "athlegame",
-      logo: athlegame,
-      description: "Building scalable solutions",
-      image: athlegame,
-      category: "Desktop App",
-      stats: { users: "75K+", rating: "4.7" },
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -191,10 +103,10 @@ const Home = () => {
                   <p className="mt-2 text-sm text-gray-600">
                     {service.description}
                   </p>
-                  <button className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 transition-all hover:text-blue-500">
+                  <a href={service.href} className="mt-4 inline-flex items-center text-sm font-medium text-blue-600 transition-all hover:text-blue-500">
                     View More
                     <ChevronRight className="ml-1 h-4 w-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
