@@ -26,31 +26,31 @@ ProjectCard.propTypes = {
 const Industries = () => {
   const currentProjects = [
     {
-      title: "misplaceMe",
+      title: "Athlegame Esports",
       description: "Innovative mobile solutions for everyday challenges.",
     },
     {
-      title: "univyx",
+      title: "Prothletes Esports",
       description: "A web platform transforming digital experiences.",
     },
     {
-      title: "athlegame",
+      title: "Civyn",
       description: "Scalable desktop applications for performance tracking.",
     },
   ];
 
   const upcomingProjects = [
     {
-      title: "Project Alpha",
+      title: "Univyx",
       description:
         "Revolutionizing business analytics with AI-driven insights.",
     },
     {
-      title: "Project Beta",
+      title: "MisplaceMe",
       description: "Next-gen cloud solutions for enterprises.",
     },
     {
-      title: "Project Gamma",
+      title: "SonariqSound",
       description: "Cutting-edge security solutions for modern threats.",
     },
   ];
