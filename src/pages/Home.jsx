@@ -22,9 +22,9 @@ const Home = () => {
                 Empowering businesses with cutting-edge solutions
               </h1>
               <p className="mt-6 text-xl text-gray-300">
-                UI/UX design, secure cybersecurity solutions, and innovative
-                development experience. Your vision, our expertise - let&apos;s
-                build the future together.
+                UI/UX Design, Secure Cybersecurity Solutions, and Innovative
+                Development Experience. Your vision, Our expertise - let&apos;s
+                Build The Future Together.
               </p>
               <div className="mt-8 flex items-center gap-4">
                 <button className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition-all hover:bg-blue-500">
