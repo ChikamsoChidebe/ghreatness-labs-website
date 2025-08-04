@@ -85,7 +85,7 @@ export default function ContactUs() {
             </div>
             <div className="flex items-center gap-3 cursor-pointer">
               <Mail className="h-6 w-6 text-gray-700" />
-              <a href="mailto:ghreatnessmanagement@gmal.com" className="text-gray-800"> ghreatnessmanagement@gmal.com</a>
+              <a href="mailto:ghreatnessmanagement@gmal.com" className="text-gray-800"> laboratory@ghreatnesslabs.com.ng</a>
             </div>
           </div>
 
