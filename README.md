@@ -1,3 +1,13 @@
+         -------------------Landing Page Image – Development Note---------------
+
+The landing page image could be a slow slideshow/carousel of multiple pictures.
+
+This would make the page more dynamic and visually engaging.
+
+Ensure the slideshow is smooth, responsive, and does not significantly affect page load time
+                           
+                           
+                           
                            ----Data Reference – Development Note----
 
 All the content, numbers, and information needed for the website have been provided in the accompanying document.
