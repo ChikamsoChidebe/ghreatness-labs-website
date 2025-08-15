@@ -1,8 +1,18 @@
-# React + Vite
+                           ----Data Reference – Development Note----
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+All the content, numbers, and information needed for the website have been provided in the accompanying document.
 
-Currently, two official plugins are available:
+The developer should use this document as the main reference for text, stats, project details, services, and success stories.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Any images, logos, or graphics to be used are also included in the provided materials.
+
+
+
+                   -----Website Images & Layout – Development Note------
+                  
+Multiple images have been provided for the website. Some images are constant and should remain unchanged, while others can be replaced if a better fit is desired.
+The developer can choose which images to use for the sections that are flexible.
+If the developer decides to adjust or redesign the layout to make the website more attractive or engaging, they are welcome to do so.
+Any layout changes should maintain responsiveness, consistency, and a professional appearance across devices.
+
+
