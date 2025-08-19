@@ -171,7 +171,7 @@ export function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      className="min-h-[110vh] flex items-center justify-center relative overflow-hidden pt-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
       
       {/* Client-side only elements */}
