@@ -172,22 +172,14 @@ function ServiceCard({ service, index, isExpanded, onToggle }: {
           }} />
         </div>
 
-        {/* 3D Icon Container */}
+        {/* Icon Container */}
         <div className="relative mb-6">
-          <div className="w-20 h-20 relative">
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[5, 5, 5]} />
-              <Service3D color={service.color} />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-            </Canvas>
-          </div>
           <motion.div
-            className={`absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center`}
-            whileHover={{ scale: 1.1, rotate: 180 }}
+            className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center`}
+            whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
           >
-            <service.icon size={24} className="text-white" />
+            <service.icon size={32} className="text-white" />
           </motion.div>
         </div>
 
