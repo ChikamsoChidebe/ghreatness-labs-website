@@ -121,7 +121,7 @@ export function Footer() {
                 whileTap={{ scale: 0.95 }}
                 className="btn-primary whitespace-nowrap"
               >
-                <span>Subscribe</span>\n                <ArrowRight className="w-4 h-4 ml-2" />
+                <span>Subscribe</span>              <ArrowRight className="w-4 h-4 ml-2" />
               </motion.button>
             </div>
             <p className="text-sm text-gray-400 text-center mt-4">
