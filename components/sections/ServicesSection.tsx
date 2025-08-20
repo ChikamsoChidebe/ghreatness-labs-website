@@ -19,6 +19,7 @@ interface Service {
   features: string[]
   stats: { label: string; value: string }[]
   image: string
+  pricing: string
 }
 
 const services: Service[] = [
@@ -32,7 +33,8 @@ const services: Service[] = [
     gradient: 'from-pink-500/20 to-rose-500/20',
     features: ['User Research & Analysis', 'Wireframing & Prototyping', 'Visual Design Systems', 'Usability Testing', 'Mobile-First Design', 'Accessibility Compliance'],
     stats: [{ label: 'Projects', value: '200+' }, { label: 'Satisfaction', value: '98%' }],
-    image: '/images/services/Ghreatness Lab2.png'
+    image: '/images/services/Ghreatness Lab2.png',
+    pricing: 'Starting from $164'
   },
   {
     id: 'web',
@@ -44,7 +46,8 @@ const services: Service[] = [
     gradient: 'from-blue-500/20 to-cyan-500/20',
     features: ['React & Next.js', 'Full-Stack Development', 'E-commerce Solutions', 'CMS Integration', 'API Development', 'Performance Optimization'],
     stats: [{ label: 'Websites Built', value: '150+' }, { label: 'Uptime', value: '99.9%' }],
-    image: '/images/services/Ghreatness Lab3.png'
+    image: '/images/services/Ghreatness Lab3.png',
+    pricing: 'Starting from $314'
   },
   {
     id: 'graphic',
@@ -56,7 +59,8 @@ const services: Service[] = [
     gradient: 'from-purple-500/20 to-indigo-500/20',
     features: ['Brand Identity Design', 'Logo Creation', 'Marketing Materials', 'Digital Graphics', 'Print Design', 'Brand Guidelines'],
     stats: [{ label: 'Designs Created', value: '500+' }, { label: 'Brands Served', value: '100+' }],
-    image: '/images/services/Ghreatness Lab4.png'
+    image: '/images/services/Ghreatness Lab4.png',
+    pricing: 'Starting from $23'
   },
   {
     id: 'video',
@@ -68,7 +72,8 @@ const services: Service[] = [
     gradient: 'from-green-500/20 to-emerald-500/20',
     features: ['Professional Editing', 'Motion Graphics', 'Color Grading', 'Audio Enhancement', 'Social Media Formats', '4K Production'],
     stats: [{ label: 'Videos Edited', value: '300+' }, { label: 'Watch Time', value: '10M+ hrs' }],
-    image: '/images/services/Ghreatness Lab5.png'
+    image: '/images/services/Ghreatness Lab5.png',
+    pricing: 'Starting from $173'
   },
   {
     id: 'social',
@@ -80,7 +85,8 @@ const services: Service[] = [
     gradient: 'from-orange-500/20 to-red-500/20',
     features: ['Content Strategy', 'Community Management', 'Paid Advertising', 'Analytics & Reporting', 'Influencer Partnerships', 'Brand Monitoring'],
     stats: [{ label: 'Campaigns Run', value: '250+' }, { label: 'Engagement Rate', value: '8.5%' }],
-    image: '/images/services/Ghreatness Firm Socialmedia marketing-04.jpg'
+    image: '/images/services/Ghreatness Firm Socialmedia marketing-04.jpg',
+    pricing: 'Starting from $21/month'
   },
   {
     id: 'software',
@@ -92,7 +98,8 @@ const services: Service[] = [
     gradient: 'from-teal-500/20 to-blue-500/20',
     features: ['Custom Applications', 'Mobile Development', 'Cloud Solutions', 'Database Design', 'API Integration', 'DevOps & Deployment'],
     stats: [{ label: 'Apps Built', value: '80+' }, { label: 'Users Served', value: '1M+' }],
-    image: '/images/services/Ghreatness Firm-01.jpg'
+    image: '/images/services/Ghreatness Firm-01.jpg',
+    pricing: 'Starting from $480'
   },
   {
     id: 'cybersecurity',
@@ -104,7 +111,8 @@ const services: Service[] = [
     gradient: 'from-red-500/20 to-pink-500/20',
     features: ['Threat Detection', 'Vulnerability Assessment', 'Data Protection', 'Network Security', 'Compliance Auditing', '24/7 Monitoring'],
     stats: [{ label: 'Systems Secured', value: '500+' }, { label: 'Threats Blocked', value: '99.8%' }],
-    image: '/images/services/Ghreatness Firm Cybersecurity-05.jpg'
+    image: '/images/services/Ghreatness Firm Cybersecurity-05.jpg',
+    pricing: 'Starting from $517'
   }
 ]
 
@@ -214,6 +222,13 @@ function ServiceCard({ service, index }: {
           ))}
         </div>
 
+        {/* Pricing */}
+        <div className="mb-4">
+          <span className={`text-lg font-bold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+            {service.pricing}
+          </span>
+        </div>
+
 
 
         {/* Read More Button */}
@@ -297,15 +312,17 @@ export function ServicesSection() {
             <p className="text-gray-300 mb-6">
               Let's discuss how our services can help you achieve your goals and drive growth.
             </p>
-            <Link href="/services">
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0 15px 35px rgba(59, 130, 246, 0.4)",
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:from-blue-400 hover:to-purple-500 flex items-center gap-2 mx-auto group"
+            <motion.div
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: "0 15px 35px rgba(59, 130, 246, 0.4)",
+                y: -2
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link 
+                href="/contact"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:from-blue-400 hover:to-purple-500 flex items-center gap-2 mx-auto group w-fit"
               >
                 Start Your Project Today
                 <motion.div
@@ -314,8 +331,8 @@ export function ServicesSection() {
                 >
                   <ArrowRight size={20} className="group-hover:animate-pulse" />
                 </motion.div>
-              </motion.button>
-            </Link>
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -88,9 +88,9 @@ export function HeroSection() {
             transition={{ delay: 0.7 }}
             className="text-xl text-gray-300 leading-relaxed max-w-2xl"
           >
-            Website development, software solutions, design services, marketing, and more — 
+            Website development, software solutions, design services, marketing, and more
             delivering exceptional UI/UX design, robust cybersecurity solutions, and innovative 
-            development experiences. Your vision, our expertise — together, let's build the future.
+            development experiences. Your vision, our expertise together, let's build the future.
           </motion.p>
 
           {/* Key Features */}

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ExternalLink, Calendar, Users, TrendingUp, Award } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const caseStudies = [
   {
@@ -104,7 +106,196 @@ const caseStudies = [
   }
 ]
 
+// Case studies from the section component
+const sectionCaseStudies = [
+  {
+    id: 1,
+    title: "AthleGame Esports",
+    tagline: "Leveling up the future of gaming and athleticism",
+    description: "An esports team and community owned by Ghreatness Labs, dedicated to promoting competitive gaming and athleticism while nurturing emerging talent.",
+    users: "77+ athletes",
+    rating: 4.3,
+    type: "Website",
+    image: "/images/esports/45f992fa-b197-45d2-9644-4a4d716d5667.jpeg",
+    color: "from-purple-600 to-pink-600",
+    achievements: [
+      "Continental esports powerhouse",
+      "Structured training programs",
+      "Custom esports platform",
+      "Lifestyle brand development"
+    ],
+    technologies: ["React", "Node.js", "WebRTC", "Socket.io"],
+    metrics: {
+      engagement: "95%",
+      growth: "300%",
+      retention: "87%"
+    }
+  },
+  {
+    id: 2,
+    title: "Civyn",
+    tagline: "Where students meet careers",
+    description: "A dynamic student hub connecting students to internships, jobs, and career development opportunities, bridging the gap between education and employment.",
+    users: "700+ community members",
+    rating: 4.7,
+    type: "Web Platform",
+    image: "/images/logos/civyn.png",
+    color: "from-blue-600 to-cyan-600",
+    achievements: [
+      "Direct access to verified internships",
+      "Professional networking platform",
+      "Skill development resources",
+      "Industry expert mentorship"
+    ],
+    technologies: ["Next.js", "PostgreSQL", "Stripe", "AWS"],
+    metrics: {
+      placements: "85%",
+      satisfaction: "4.7/5",
+      partnerships: "50+"
+    }
+  },
+  {
+    id: 3,
+    title: "Univyx",
+    tagline: "Redefining the private university experience",
+    description: "A dedicated student hub designed to enhance the private university experience, offering academic resources, networking, and engagement opportunities for students.",
+    users: "Projected 100,000 students",
+    rating: 4.9,
+    type: "Web & Software App",
+    image: "/images/logos/univyx.png",
+    color: "from-green-600 to-teal-600",
+    achievements: [
+      "Academic resource platform",
+      "Student networking hub",
+      "Engagement opportunities",
+      "University integration"
+    ],
+    technologies: ["React Native", "GraphQL", "MongoDB", "Firebase"],
+    metrics: {
+      adoption: "92%",
+      engagement: "88%",
+      satisfaction: "4.9/5"
+    }
+  }
+]
+
 export default function CaseStudiesPage() {
+  const searchParams = useSearchParams()
+  const [selectedStudy, setSelectedStudy] = useState<number | null>(null)
+  
+  useEffect(() => {
+    const studyParam = searchParams.get('study')
+    if (studyParam) {
+      const studyId = parseInt(studyParam)
+      const study = sectionCaseStudies.find(s => s.id === studyId)
+      if (study) {
+        setSelectedStudy(studyId)
+      }
+    }
+  }, [searchParams])
+
+  // If a specific study is selected, show detailed view
+  if (selectedStudy) {
+    const study = sectionCaseStudies.find(s => s.id === selectedStudy)
+    if (study) {
+      return (
+        <div className="min-h-screen pt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Back Button */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="mb-8"
+            >
+              <button
+                onClick={() => setSelectedStudy(null)}
+                className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+                <span>Back to Case Studies</span>
+              </button>
+            </motion.div>
+
+            {/* Detailed Study View */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="glass p-12 rounded-3xl"
+            >
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Study Image */}
+                <div className="relative">
+                  <div className="relative h-96 rounded-2xl overflow-hidden">
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${study.color} opacity-20`} />
+                  </div>
+                </div>
+
+                {/* Study Details */}
+                <div className="space-y-6">
+                  <div>
+                    <h1 className="text-4xl font-bold text-white mb-4">{study.title}</h1>
+                    <p className="text-blue-400 text-lg font-medium mb-6">{study.tagline}</p>
+                  </div>
+
+                  <p className="text-gray-300 leading-relaxed">{study.description}</p>
+
+                  {/* Achievements */}
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-4">Key Achievements</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {study.achievements.map((achievement, index) => (
+                        <div key={index} className="flex items-center space-x-2">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                          <span className="text-gray-300 text-sm">{achievement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-4">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {study.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full text-sm text-blue-300 border border-blue-500/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Metrics */}
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-4">Project Metrics</h4>
+                    <div className="grid gap-4">
+                      {Object.entries(study.metrics).map(([key, value], index) => (
+                        <div key={key} className="glass p-4 rounded-xl">
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-300 capitalize">{key}</span>
+                            <span className="text-2xl font-bold text-blue-400">{value}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      )
+    }
+  }
+
   return (
     <div className="min-h-screen pt-20">
       {/* Background Elements */}
@@ -206,7 +397,10 @@ export default function CaseStudiesPage() {
                     <Calendar size={14} />
                     {study.duration}
                   </div>
-                  <button className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors">
+                  <button 
+                    onClick={() => setSelectedStudy(study.id)}
+                    className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+                  >
                     <span className="text-sm">View Details</span>
                     <ArrowRight size={14} />
                   </button>

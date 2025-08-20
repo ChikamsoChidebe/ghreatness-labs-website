@@ -129,10 +129,20 @@ export default function AboutPage() {
                 <span className="gradient-text block">Ghreatness Labs</span>
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                We are a technology solutions company dedicated to empowering businesses with cutting-edge digital experiences. 
-                From innovative web development to comprehensive cybersecurity solutions, we transform visions into reality.
+              <p className="text-xl text-gray-300 leading-relaxed mb-6">
+                Ghreatness Labs is a premier digital and IT solutions provider, empowering businesses to thrive in the ever-evolving online landscape. Operating on a Platform-as-a-Service (PaaS) model, we offer a consolidated solution combining multiple essential services under one roof, providing a one-stop hub for all your digital and IT needs. This streamlined approach allows businesses to focus on their core operations while we seamlessly handle their digital transformation.
               </p>
+              
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="glass p-4 rounded-xl">
+                  <div className="text-2xl font-bold text-blue-400 mb-1">500+</div>
+                  <div className="text-sm text-gray-400">Projects Delivered</div>
+                </div>
+                <div className="glass p-4 rounded-xl">
+                  <div className="text-2xl font-bold text-green-400 mb-1">98%</div>
+                  <div className="text-sm text-gray-400">Client Satisfaction</div>
+                </div>
+              </div>
               
               <div className="flex flex-wrap gap-4">
                 <motion.button
@@ -159,14 +169,27 @@ export default function AboutPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="glass p-8 rounded-2xl">
-                <Image
-                  src="/images/about/Ghreatness Lab1.png"
-                  alt="Ghreatness Labs"
-                  width={500}
-                  height={400}
-                  className="rounded-xl"
-                />
+              <div className="relative">
+                <div className="glass p-8 rounded-2xl">
+                  <Image
+                    src="/about.jpeg"
+                    alt="Ghreatness Labs Team"
+                    width={600}
+                    height={400}
+                    className="rounded-xl object-cover w-full h-full"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/images/about/Ghreatness Lab1.png';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl" />
+                </div>
+                <div className="absolute -bottom-4 -right-4 glass p-4 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-sm text-gray-300">Innovating Since 2023</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -225,9 +248,9 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-bold text-white mb-6">Our Mission</h3>
               <p className="text-gray-300 leading-relaxed">
-                To empower students with access, information, and opportunities that accelerate their career growth. 
-                We provide direct access to verified internships, build professional networks, and offer skill development 
-                resources that match evolving industry demands.
+                To empower businesses and individuals with cutting-edge technology solutions that drive growth and innovation. 
+                We provide comprehensive digital services, build robust technological foundations, and deliver strategic solutions 
+                that transform challenges into opportunities for sustainable success.
               </p>
             </motion.div>
 

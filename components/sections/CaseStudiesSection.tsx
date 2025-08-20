@@ -182,7 +182,7 @@ export function CaseStudiesSection() {
                       </div>
                     </div>
                     
-                    <Link href="/case-studies">
+                    <Link href={`/case-studies?study=${study.id}`}>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -296,7 +296,7 @@ export function CaseStudiesSection() {
               </div>
 
               {/* CTA Button */}
-              <Link href="/case-studies">
+              <Link href={`/case-studies?study=${caseStudies[selectedCase].id}`}>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -351,11 +351,13 @@ export function CaseStudiesSection() {
               Let's discuss how we can help transform your business with cutting-edge technology solutions.
             </p>
             
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-3 mx-auto"
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link 
+                href="/contact"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-3 mx-auto w-fit"
               >
                 Start Your Project Today
                 <motion.div
@@ -364,8 +366,8 @@ export function CaseStudiesSection() {
                 >
                   <ArrowRight className="w-6 h-6" />
                 </motion.div>
-              </motion.button>
-            </Link>
+              </Link>
+            </motion.div>
             
             <div className="flex items-center justify-center space-x-8 mt-8 text-sm text-gray-400">
               <div className="flex items-center space-x-2">

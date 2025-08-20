@@ -41,7 +41,7 @@ export function Navigation() {
               <Image
                 src="https://ghreatnesslab.vercel.app/assets/GhreatnessLabsLogo-2IaUT3cV.png"
                 alt="Ghreatness Labs"
-                width={180}
+                width={400}
                 height={40}
                 className="object-contain h-full w-auto brightness-0 invert brightness-200"
               />

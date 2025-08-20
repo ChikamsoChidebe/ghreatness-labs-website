@@ -24,7 +24,7 @@ const services = [
       'Design Systems'
     ],
     technologies: ['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Principle', 'Framer'],
-    pricing: 'Starting from $2,500'
+    pricing: 'Starting from $164'
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const services = [
       'SEO Implementation'
     ],
     technologies: ['React', 'Next.js', 'Node.js', 'Python', 'PHP', 'WordPress'],
-    pricing: 'Starting from $5,000'
+    pricing: 'Starting from $314'
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ const services = [
       'Brand Guidelines'
     ],
     technologies: ['Adobe Creative Suite', 'Figma', 'Canva Pro', 'Sketch', 'CorelDRAW'],
-    pricing: 'Starting from $1,500'
+    pricing: 'Starting from $23'
   },
   {
     id: 4,
@@ -81,7 +81,7 @@ const services = [
       'Corporate Videos'
     ],
     technologies: ['Adobe Premiere Pro', 'After Effects', 'Final Cut Pro', 'DaVinci Resolve'],
-    pricing: 'Starting from $1,000'
+    pricing: 'Starting from $173'
   },
   {
     id: 5,
@@ -100,7 +100,7 @@ const services = [
       'Influencer Partnerships'
     ],
     technologies: ['Facebook Ads', 'Google Ads', 'Instagram', 'LinkedIn', 'TikTok', 'Twitter'],
-    pricing: 'Starting from $2,000/month'
+    pricing: 'Starting from $21/month'
   },
   {
     id: 6,
@@ -119,7 +119,7 @@ const services = [
       'Maintenance & Support'
     ],
     technologies: ['React Native', 'Flutter', 'Python', 'Java', 'C#', '.NET', 'MongoDB'],
-    pricing: 'Starting from $10,000'
+    pricing: 'Starting from $480'
   },
   {
     id: 7,
@@ -138,7 +138,7 @@ const services = [
       'Compliance Management'
     ],
     technologies: ['Firewall Systems', 'SIEM Tools', 'Penetration Testing', 'Encryption'],
-    pricing: 'Starting from $3,000'
+    pricing: 'Starting from $517'
   }
 ]
 

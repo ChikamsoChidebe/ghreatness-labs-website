@@ -2,8 +2,9 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
-import { Users, Award, Clock, Globe, Zap, Shield, Code, TrendingUp } from 'lucide-react'
+import { Users, Award, Clock, Globe, Zap, Shield, Code, TrendingUp, ArrowRight } from 'lucide-react'
 import CountUp from 'react-countup'
+import Link from 'next/link'
 
 interface StatCardProps {
   icon: React.ComponentType<any>
@@ -270,13 +271,18 @@ export function StatsSection() {
             <p className="text-gray-300 mb-6">
               Let's discuss how we can help transform your business with cutting-edge technology solutions.
             </p>
-            <motion.button
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary"
             >
-              Start Your Project Today
-            </motion.button>
+              <Link 
+                href="/contact"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:from-blue-400 hover:to-purple-500 flex items-center gap-2 mx-auto w-fit"
+              >
+                Start Your Project Today
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </div>
