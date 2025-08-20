@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ExternalLink, Calendar, Users, TrendingUp, Award } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 const caseStudies = [
@@ -179,7 +179,7 @@ const sectionCaseStudies = [
   }
 ]
 
-export default function CaseStudiesPage() {
+function CaseStudiesContent() {
   const searchParams = useSearchParams()
   const [selectedStudy, setSelectedStudy] = useState<number | null>(null)
   
@@ -438,5 +438,20 @@ export default function CaseStudiesPage() {
         </motion.div>
       </div>
     </div>
+  )
+}
+
+export default function CaseStudiesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-gray-400">Loading case studies...</p>
+        </div>
+      </div>
+    }>
+      <CaseStudiesContent />
+    </Suspense>
   )
 }
