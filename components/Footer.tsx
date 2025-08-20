@@ -33,26 +33,26 @@ const footerLinks = {
     { name: 'Cybersecurity', href: '/services#security' }
   ],
   company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Our Team', href: '/about#team' },
-    { name: 'Careers', href: '/careers' },
+    { name: 'About Us', href: '#' },
+    { name: 'Our Team', href: '#' },
+    { name: 'Careers', href: '#' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Blog', href: '#' },
     { name: 'Contact', href: '/contact' }
   ],
   projects: [
-    { name: 'AthleGame Esports', href: '/projects/athlegame' },
-    { name: 'Civyn Platform', href: '/projects/civyn' },
-    { name: 'Univyx Hub', href: '/projects/univyx' },
-    { name: 'All Projects', href: '/projects' }
+    { name: 'AthleGame Esports', href: '#' },
+    { name: 'Civyn Platform', href: '#' },
+    { name: 'Univyx Hub', href: '#' },
+    { name: 'All Projects', href: '#' }
   ],
   resources: [
-    { name: 'Documentation', href: '/docs' },
-    { name: 'API Reference', href: '/api' },
-    { name: 'Support Center', href: '/support' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' }
+    { name: 'Documentation', href: '#' },
+    { name: 'API Reference', href: '#' },
+    { name: 'Support Center', href: '#' },
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
+    { name: 'Cookie Policy', href: '#' }
   ]
 }
 
@@ -308,13 +308,13 @@ export function Footer() {
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 Cookie Policy
               </Link>
             </div>
