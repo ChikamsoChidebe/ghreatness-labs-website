@@ -152,7 +152,7 @@ export default function ServicesPage() {
     const urlParams = new URLSearchParams(window.location.search)
     const serviceParam = urlParams.get('service')
     if (serviceParam) {
-      const serviceIndex = services.findIndex(s => s.id === serviceParam)
+      const serviceIndex = services.findIndex(s => s.id === parseInt(serviceParam))
       if (serviceIndex !== -1) {
         setSelectedService(serviceIndex)
         setExpandedService(serviceIndex)
