@@ -43,7 +43,7 @@ export function Navigation() {
                 alt="Ghreatness Labs"
                 width={180}
                 height={40}
-                className="object-contain h-full w-auto"
+                className="object-contain h-full w-auto brightness-0 invert brightness-200"
               />
             </div>
           </Link>
