@@ -167,13 +167,13 @@ export function Footer() {
               className="lg:col-span-2"
             >
               <div className="mb-6">
-                <div className="h-12 w-auto bg-white rounded-lg p-2 shadow-sm mb-4">
+                <div className="h-16 w-auto glass p-3 shadow-sm mb-4 inline-block">
                   <Image
-                    src="https://ghreatnesslab.vercel.app/assets/GhreatnessLabsLogo-2IaUT3cV.png"
+                    src="/images/logo.jpeg"
                     alt="Ghreatness Labs"
                     width={200}
                     height={40}
-                    className="object-contain h-full w-auto"
+                    className="object-contain h-full w-auto rounded-lg"
                   />
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">

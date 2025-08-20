@@ -2,22 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei'
-
-function AnimatedSphere() {
-  return (
-    <Sphere visible args={[1, 100, 200]} scale={2}>
-      <MeshDistortMaterial
-        color="#667eea"
-        attach="material"
-        distort={0.3}
-        speed={1.5}
-        roughness={0}
-      />
-    </Sphere>
-  )
-}
+import Image from 'next/image'
 
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)
@@ -50,15 +35,34 @@ export function LoadingScreen() {
           transition={{ duration: 0.5 }}
           className="loading-screen fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900"
         >
-          {/* 3D Logo Animation */}
-          <div className="w-32 h-32 mb-8">
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <AnimatedSphere />
-              <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
-            </Canvas>
-          </div>
+          {/* Logo Animation */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-32 h-32 mb-8 relative"
+          >
+            <motion.div
+              animate={{ 
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="glass p-4 rounded-2xl"
+            >
+              <Image
+                src="/images/logo.jpeg"
+                alt="Ghreatness Labs Logo"
+                width={128}
+                height={128}
+                className="object-contain w-full h-full rounded-xl"
+              />
+            </motion.div>
+          </motion.div>
 
           {/* Company Name */}
           <motion.h1
