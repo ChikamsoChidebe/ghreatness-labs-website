@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Users, Target, Zap, Globe, Award, TrendingUp, Code, Palette, Shield, Smartphone } from 'lucide-react'
+import { Users, Target, Zap, Globe, Award, TrendingUp, Code, Palette, Shield, Smartphone, User, Crown, Settings, Megaphone } from 'lucide-react'
 import Image from 'next/image'
 
 const stats = [
@@ -17,6 +17,41 @@ const services = [
   { name: 'Web Development', icon: Code, color: 'from-blue-500 to-cyan-500' },
   { name: 'Mobile Apps', icon: Smartphone, color: 'from-green-500 to-emerald-500' },
   { name: 'Cybersecurity', icon: Shield, color: 'from-purple-500 to-violet-500' }
+]
+
+const team = [
+  {
+    name: 'Tunde Olamide Charles',
+    role: 'CEO',
+    icon: Crown,
+    color: 'from-yellow-500 to-orange-500',
+    expertise: ['Cybersecurity Expert', 'Cloud Security Engineer', 'Penetration Testing', 'IT Leadership', 'Project Management', 'Business Strategy', 'Esports Enthusiast'],
+    certifications: '61+ Tech Certifications'
+  },
+  {
+    name: 'Olaniyan Moyosore',
+    role: 'COO',
+    icon: Settings,
+    color: 'from-blue-500 to-cyan-500',
+    expertise: ['Web Development', 'Media Creative', 'Strategic Planning', 'Technology Expert', 'Esports Enthusiast'],
+    certifications: 'Tech Enthusiast'
+  },
+  {
+    name: 'Olawale Timileyin Emmanuel',
+    role: 'CTO',
+    icon: Code,
+    color: 'from-purple-500 to-pink-500',
+    expertise: ['Web3 Expert', 'Cybersecurity Expert', 'Innovation Leader', 'Creative Technology', 'Esports Enthusiast'],
+    certifications: 'Technology Innovator'
+  },
+  {
+    name: 'Janet Anderson',
+    role: 'Marketing Advisor',
+    icon: Megaphone,
+    color: 'from-green-500 to-emerald-500',
+    expertise: ['Marketing Strategy', 'Brand Development', 'Digital Marketing', 'Growth Strategy'],
+    certifications: 'Marketing Expert'
+  }
 ]
 
 export default function AboutPage() {
@@ -196,6 +231,60 @@ export default function AboutPage() {
                 <p className="text-gray-300 text-sm">
                   Professional {service.name.toLowerCase()} solutions designed for modern businesses
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="section-padding bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+              Meet Our Leadership
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Experienced leaders driving innovation and excellence in technology
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {team.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="glass p-8 rounded-2xl hover-lift group"
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`p-4 bg-gradient-to-r ${member.color} bg-opacity-20 rounded-full group-hover:scale-110 transition-transform duration-300`}>
+                    <member.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
+                    <p className={`text-lg font-semibold bg-gradient-to-r ${member.color} bg-clip-text text-transparent mb-3`}>
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-blue-400 mb-4">{member.certifications}</p>
+                    <div className="space-y-2">
+                      {member.expertise.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="inline-block bg-gray-800/50 text-gray-300 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
