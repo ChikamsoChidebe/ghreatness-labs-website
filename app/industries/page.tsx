@@ -12,7 +12,6 @@ const industries = [
     icon: Heart,
     description: 'Digital solutions for hospitals, clinics, and healthcare providers.',
     services: ['Patient Management Systems', 'Telemedicine Platforms', 'Medical Records', 'Healthcare Analytics'],
-    image: '/images/gallery/1.png',
     color: 'from-red-500 to-pink-500'
   },
   {
@@ -21,7 +20,6 @@ const industries = [
     icon: ShoppingCart,
     description: 'Complete online retail solutions and marketplace platforms.',
     services: ['Online Stores', 'Payment Integration', 'Inventory Management', 'Customer Analytics'],
-    image: '/images/gallery/2.png',
     color: 'from-blue-500 to-cyan-500'
   },
   {
@@ -30,7 +28,6 @@ const industries = [
     icon: GraduationCap,
     description: 'Learning management systems and educational technology.',
     services: ['LMS Platforms', 'Online Courses', 'Student Portals', 'Educational Apps'],
-    image: '/images/gallery/3.png',
     color: 'from-green-500 to-emerald-500'
   },
   {
@@ -39,7 +36,6 @@ const industries = [
     icon: Building2,
     description: 'Secure financial technology and banking solutions.',
     services: ['Banking Apps', 'Payment Systems', 'Investment Platforms', 'Blockchain Solutions'],
-    image: '/images/gallery/6.png',
     color: 'from-purple-500 to-indigo-500'
   },
   {
@@ -48,7 +44,6 @@ const industries = [
     icon: Car,
     description: 'Digital solutions for automotive industry and dealerships.',
     services: ['Dealership Management', 'Vehicle Tracking', 'Service Booking', 'Fleet Management'],
-    image: '/images/gallery/8.png',
     color: 'from-orange-500 to-red-500'
   },
   {
@@ -57,7 +52,6 @@ const industries = [
     icon: Gamepad2,
     description: 'Gaming platforms and esports tournament management.',
     services: ['Tournament Platforms', 'Gaming Communities', 'Live Streaming', 'Player Analytics'],
-    image: '/images/esports/45f992fa-b197-45d2-9644-4a4d716d5667.jpeg',
     color: 'from-teal-500 to-blue-500'
   }
 ]
@@ -108,18 +102,16 @@ export default function IndustriesPage() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="group glass rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={industry.image}
-                  alt={industry.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className={`absolute top-4 right-4 w-12 h-12 bg-gradient-to-r ${industry.color} rounded-xl flex items-center justify-center`}>
-                  <industry.icon size={24} className="text-white" />
-                </div>
+              {/* Icon Header */}
+              <div className={`relative h-32 bg-gradient-to-br ${industry.color} flex items-center justify-center`}>
+                <div className="absolute inset-0 bg-black/20" />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center"
+                >
+                  <industry.icon size={32} className="text-white" />
+                </motion.div>
               </div>
 
               {/* Content */}
