@@ -176,14 +176,16 @@ export function CaseStudiesSection() {
                       </div>
                     </div>
                     
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      <span className="text-sm font-medium">View Details</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.button>
+                    <Link href="/case-studies">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
+                      >
+                        <span className="text-sm font-medium">View Details</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </div>
 
@@ -286,14 +288,16 @@ export function CaseStudiesSection() {
               </div>
 
               {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full btn-primary mt-6"
-              >
-                <span>View Full Case Study</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </motion.button>
+              <Link href="/case-studies">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full btn-primary mt-6"
+                >
+                  <span>View Full Case Study</span>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>

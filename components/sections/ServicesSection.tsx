@@ -259,20 +259,24 @@ function ServiceCard({ service, index, isExpanded, onToggle }: {
 
             {/* Action Buttons */}
             <div className="flex gap-3">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`flex-1 bg-gradient-to-r ${service.color} text-white py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg`}
-              >
-                Get Quote
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 border border-white/20 text-white rounded-full font-semibold text-sm hover:bg-white/10 transition-all duration-300"
-              >
-                Portfolio
-              </motion.button>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`flex-1 bg-gradient-to-r ${service.color} text-white py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg`}
+                >
+                  Get Quote
+                </motion.button>
+              </Link>
+              <Link href="/case-studies">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 border border-white/20 text-white rounded-full font-semibold text-sm hover:bg-white/10 transition-all duration-300"
+                >
+                  Portfolio
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>
@@ -367,14 +371,16 @@ export function ServicesSection() {
             <p className="text-gray-300 mb-6">
               Let's discuss how our services can help you achieve your goals and drive growth.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2 mx-auto"
-            >
-              Start Your Project
-              <ArrowRight size={20} />
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2 mx-auto"
+              >
+                Start Your Project
+                <ArrowRight size={20} />
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>

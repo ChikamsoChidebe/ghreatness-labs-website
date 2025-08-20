@@ -152,10 +152,15 @@ export default function CaseStudiesPage() {
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-600/20" />
+                <div className={`w-full h-full bg-gradient-to-br ${index % 2 === 0 ? 'from-blue-500/20 to-purple-600/20' : 'from-purple-500/20 to-pink-600/20'}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-4 right-4 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-xs text-white">
                   {study.year}
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <Award size={24} className="text-white" />
+                  </div>
                 </div>
               </div>
 
