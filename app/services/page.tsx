@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Palette, Code, Video, Share2, Shield, Smartphone, ArrowRight, CheckCircle, Star } from 'lucide-react'
 import Image from 'next/image'
 
@@ -146,6 +146,19 @@ export default function ServicesPage() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [selectedService, setSelectedService] = useState(0)
   const [expandedService, setExpandedService] = useState<number | null>(null)
+  
+  // Handle URL parameter to expand specific service
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const serviceParam = urlParams.get('service')
+    if (serviceParam) {
+      const serviceIndex = services.findIndex(s => s.id === serviceParam)
+      if (serviceIndex !== -1) {
+        setSelectedService(serviceIndex)
+        setExpandedService(serviceIndex)
+      }
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-black text-white">

@@ -132,11 +132,9 @@ function Service3D({ color }: { color: string }) {
   )
 }
 
-function ServiceCard({ service, index, isExpanded, onToggle }: { 
+function ServiceCard({ service, index }: { 
   service: Service
   index: number
-  isExpanded: boolean
-  onToggle: () => void 
 }) {
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true, margin: "-100px" })
@@ -217,76 +215,14 @@ function ServiceCard({ service, index, isExpanded, onToggle }: {
           ))}
         </div>
 
-        {/* Expanded Content */}
-        <motion.div
-          initial={false}
-          animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="overflow-hidden"
-        >
-          <div className="pt-6 border-t border-white/10">
-            <p className="text-gray-300 mb-6 leading-relaxed text-sm">
-              {service.fullDescription}
-            </p>
-            
-            {/* All Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {service.features.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex items-center gap-3 p-3 bg-white/5 rounded-lg"
-                >
-                  <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.color}`} />
-                  <span className="text-sm text-gray-300">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
 
-            {/* Service Image */}
-            <div className="relative h-48 rounded-xl overflow-hidden mb-6">
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} to-transparent`} />
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-3">
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex-1 bg-gradient-to-r ${service.color} text-white py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg`}
-                >
-                  Get Quote
-                </motion.button>
-              </Link>
-              <Link href="/case-studies">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border border-white/20 text-white rounded-full font-semibold text-sm hover:bg-white/10 transition-all duration-300"
-                >
-                  Portfolio
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Read More Button */}
         <Link href="/services">
           <motion.button
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)" }}
             whileTap={{ scale: 0.98 }}
-            className={`w-full mt-6 flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r ${service.gradient} border border-white/10 rounded-full text-white font-medium transition-all duration-300 hover:border-white/20`}
+            className={`w-full mt-6 flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r ${service.gradient} border border-white/10 rounded-full text-white font-medium transition-all duration-300 hover:border-white/20 hover:shadow-lg`}
           >
             Read More
             <ChevronRight size={16} />
@@ -300,13 +236,8 @@ function ServiceCard({ service, index, isExpanded, onToggle }: {
 }
 
 export function ServicesSection() {
-  const [expandedService, setExpandedService] = useState<string | null>(null)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
-  const toggleService = (serviceId: string) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId)
-  }
 
   return (
     <section ref={sectionRef} className="section-padding relative overflow-hidden">
@@ -351,8 +282,6 @@ export function ServicesSection() {
               key={service.id}
               service={service}
               index={index}
-              isExpanded={expandedService === service.id}
-              onToggle={() => toggleService(service.id)}
             />
           ))}
         </div>
@@ -371,14 +300,23 @@ export function ServicesSection() {
             <p className="text-gray-300 mb-6">
               Let's discuss how our services can help you achieve your goals and drive growth.
             </p>
-            <Link href="/contact">
+            <Link href="/services">
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 15px 35px rgba(59, 130, 246, 0.4)",
+                  y: -2
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2 mx-auto"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-2xl hover:from-blue-400 hover:to-purple-500 flex items-center gap-2 mx-auto group"
               >
-                Start Your Project
-                <ArrowRight size={20} />
+                Start Your Project Today
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight size={20} className="group-hover:animate-pulse" />
+                </motion.div>
               </motion.button>
             </Link>
           </div>

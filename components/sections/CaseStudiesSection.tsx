@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState} from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Users, Star, Globe, Smartphone, Trophy, Target, TrendingUp } from 'lucide-react'
 import Image from 'next/image'
@@ -83,6 +83,11 @@ export function CaseStudiesSection() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
   const [selectedCase, setSelectedCase] = useState(0)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <section ref={ref} className="section-padding bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
@@ -191,11 +196,13 @@ export function CaseStudiesSection() {
                 </div>
 
                 {/* Hover Effect */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredCard === index ? 1 : 0 }}
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl pointer-events-none"
-                />
+                {mounted && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: hoveredCard === index ? 1 : 0 }}
+                    className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl pointer-events-none"
+                  />
+                )}
               </div>
             </motion.div>
           ))}
@@ -317,6 +324,65 @@ export function CaseStudiesSection() {
             />
           ))}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-20"
+        >
+          <div className="glass p-12 rounded-3xl border border-white/10 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={inView ? { scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              className="inline-block p-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full mb-8"
+            >
+              <Target className="w-10 h-10 text-green-400" />
+            </motion.div>
+            
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Join Our
+              <span className="gradient-text block">Success Stories?</span>
+            </h3>
+            
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Let's discuss how we can help transform your business with cutting-edge technology solutions.
+            </p>
+            
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-3 mx-auto"
+              >
+                Start Your Project Today
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight className="w-6 h-6" />
+                </motion.div>
+              </motion.button>
+            </Link>
+            
+            <div className="flex items-center justify-center space-x-8 mt-8 text-sm text-gray-400">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full" />
+                <span>Free Consultation</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                <span>24/7 Support</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                <span>Proven Results</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
