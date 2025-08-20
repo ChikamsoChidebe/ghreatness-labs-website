@@ -13,10 +13,62 @@ const stats = [
 ]
 
 const services = [
-  { name: 'UI/UX Design', icon: Palette, color: 'from-pink-500 to-rose-500' },
-  { name: 'Web Development', icon: Code, color: 'from-blue-500 to-cyan-500' },
-  { name: 'Mobile Apps', icon: Smartphone, color: 'from-green-500 to-emerald-500' },
-  { name: 'Cybersecurity', icon: Shield, color: 'from-purple-500 to-violet-500' }
+  {
+    title: 'UI/UX Design',
+    description: 'Tailored designs that blend beauty and usability.',
+    icon: Palette,
+    color: 'from-pink-500 to-rose-500',
+    stats: [{ label: 'Projects', value: '200+' }, { label: 'Satisfaction', value: '98%' }],
+    features: ['User Research & Analysis', 'Wireframing & Prototyping', 'Visual Design Systems', 'Usability Testing']
+  },
+  {
+    title: 'Web Development',
+    description: 'Fast, secure, and responsive websites.',
+    icon: Code,
+    color: 'from-blue-500 to-cyan-500',
+    stats: [{ label: 'Websites Built', value: '150+' }, { label: 'Uptime', value: '99.9%' }],
+    features: ['React & Next.js', 'Full-Stack Development', 'E-commerce Solutions', 'CMS Integration']
+  },
+  {
+    title: 'Graphic Design',
+    description: 'Striking visuals that define your brand.',
+    icon: Palette,
+    color: 'from-purple-500 to-indigo-500',
+    stats: [{ label: 'Designs Created', value: '500+' }, { label: 'Brands Served', value: '100+' }],
+    features: ['Brand Identity Design', 'Logo Creation', 'Marketing Materials', 'Digital Graphics']
+  },
+  {
+    title: 'Video Editing',
+    description: 'Polished videos that captivate audiences.',
+    icon: Smartphone,
+    color: 'from-green-500 to-emerald-500',
+    stats: [{ label: 'Videos Edited', value: '300+' }, { label: 'Watch Time', value: '10M+ hrs' }],
+    features: ['Professional Editing', 'Motion Graphics', 'Color Grading', 'Audio Enhancement']
+  },
+  {
+    title: 'Social Media Marketing',
+    description: 'Campaigns that grow and engage.',
+    icon: TrendingUp,
+    color: 'from-orange-500 to-red-500',
+    stats: [{ label: 'Campaigns Run', value: '250+' }, { label: 'Engagement Rate', value: '8.5%' }],
+    features: ['Content Strategy', 'Community Management', 'Paid Advertising', 'Analytics & Reporting']
+  },
+  {
+    title: 'Software Development',
+    description: 'Scalable software built for your needs.',
+    icon: Code,
+    color: 'from-teal-500 to-blue-500',
+    stats: [{ label: 'Apps Built', value: '80+' }, { label: 'Users Served', value: '1M+' }],
+    features: ['Custom Applications', 'Mobile Development', 'Cloud Solutions', 'Database Design']
+  },
+  {
+    title: 'Cybersecurity',
+    description: 'Protection for businesses and individuals.',
+    icon: Shield,
+    color: 'from-red-500 to-pink-500',
+    stats: [{ label: 'Systems Secured', value: '500+' }, { label: 'Threats Blocked', value: '99.8%' }],
+    features: ['Threat Detection', 'Vulnerability Assessment', 'Data Protection', 'Network Security']
+  }
 ]
 
 const team = [
@@ -208,29 +260,50 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-              What We Do Best
+              Our Services
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Comprehensive digital solutions tailored to your business needs
+              Comprehensive digital solutions designed to transform your business and accelerate growth
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
-                key={service.name}
+                key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={servicesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass p-6 rounded-2xl hover-lift group cursor-pointer"
+                className="glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-500 group"
               >
-                <div className={`inline-block p-4 bg-gradient-to-r ${service.color} bg-opacity-20 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-8 h-8 text-white" />
+                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon size={24} className="text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4">{service.name}</h3>
-                <p className="text-gray-300 text-sm">
-                  Professional {service.name.toLowerCase()} solutions designed for modern businesses
-                </p>
+                
+                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                
+                {/* Stats */}
+                <div className="flex gap-4 mb-6">
+                  {service.stats.map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className={`text-lg font-bold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-gray-400">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Features */}
+                <div className="grid grid-cols-2 gap-2">
+                  {service.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-sm text-gray-400">
+                      <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`} />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>

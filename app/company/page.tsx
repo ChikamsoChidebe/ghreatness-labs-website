@@ -192,46 +192,7 @@ export default function CompanyPage() {
           </div>
         </motion.div>
 
-        {/* Team Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Team</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              The talented individuals behind our success, bringing diverse expertise and passion to every project.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 + index * 0.1 }}
-                className="glass p-6 rounded-3xl border border-white/10 text-center hover:border-white/20 transition-all duration-300"
-              >
-                <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users size={32} className="text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-1">{member.name}</h4>
-                <p className="text-blue-400 text-sm mb-3">{member.role}</p>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{member.bio}</p>
-                <div className="flex flex-wrap gap-1 justify-center">
-                  {member.expertise.map((skill, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Why Choose Us */}
         <motion.div

@@ -18,10 +18,11 @@ export function Navigation() {
 
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
+    { name: 'About', href: '/about', icon: Users },
     { name: 'Services', href: '/services', icon: Briefcase },
     { name: 'Industries', href: '/industries', icon: Building },
     { name: 'Case Studies', href: '/case-studies', icon: FileText },
-    { name: 'Company', href: '/company', icon: Users },
+    { name: 'Company', href: '/company', icon: Building },
     { name: 'Contact', href: '/contact', icon: Phone }
   ]
 
