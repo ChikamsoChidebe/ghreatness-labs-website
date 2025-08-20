@@ -147,12 +147,11 @@ function ServiceCard({ service, index }: {
       transition={{ duration: 0.8, delay: index * 0.2 }}
       className="group relative"
     >
-
-      
-      <motion.div
-        whileHover={{ y: -10, rotateY: 5 }}
-        className="relative glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden"
-      >
+      <Link href={`/services?service=${service.id}`} className="block">
+        <motion.div
+          whileHover={{ y: -10, rotateY: 5 }}
+          className="relative glass p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden cursor-pointer"
+        >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="w-full h-full" style={{
@@ -218,19 +217,17 @@ function ServiceCard({ service, index }: {
 
 
         {/* Read More Button */}
-        <Link href="/services">
-          <motion.button
-            whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
-            className={`w-full mt-6 flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r ${service.gradient} border border-white/10 rounded-full text-white font-medium transition-all duration-300 hover:border-white/20 hover:shadow-lg`}
-          >
-            Read More
-            <ChevronRight size={16} />
-          </motion.button>
-        </Link>
+        <motion.div
+          whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)" }}
+          whileTap={{ scale: 0.98 }}
+          className={`w-full mt-6 flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r ${service.color} text-white rounded-full font-semibold transition-all duration-300 hover:shadow-xl cursor-pointer`}
+        >
+          Read More
+          <ChevronRight size={16} />
+        </motion.div>
 
-
-      </motion.div>
+        </motion.div>
+      </Link>
     </motion.div>
   )
 }
