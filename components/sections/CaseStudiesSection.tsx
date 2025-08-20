@@ -142,6 +142,10 @@ export function CaseStudiesSection() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/images/gallery/1.png';
+                    }}
                   />
                   <div className="absolute top-4 right-4">
                     <span className="bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-sm text-white">
