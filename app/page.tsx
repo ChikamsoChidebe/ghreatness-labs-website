@@ -6,13 +6,29 @@ import { ServicesSection } from '@/components/sections/ServicesSection'
 import { CaseStudiesSection } from '@/components/sections/CaseStudiesSection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { ConsultationSection } from '@/components/sections/ConsultationSection'
-
-
-
+import { StructuredData } from '@/components/StructuredData'
 
 export default function HomePage() {
   return (
     <div className="relative">
+      {/* Structured Data */}
+      <StructuredData type="organization" />
+      <StructuredData type="website" />
+      <StructuredData 
+        type="service" 
+        data={{
+          name: 'Software Development Services',
+          description: 'Comprehensive software development, web development, mobile apps, UI/UX design, cybersecurity, and digital marketing services in Nigeria',
+          packages: [
+            { name: 'Web Development', description: 'Custom website development' },
+            { name: 'Mobile Apps', description: 'Native and cross-platform mobile applications' },
+            { name: 'UI/UX Design', description: 'User interface and experience design' },
+            { name: 'Cybersecurity', description: 'Security consulting and implementation' },
+            { name: 'Digital Marketing', description: 'Strategic digital marketing solutions' }
+          ]
+        }}
+      />
+      
       {/* Hero Section */}
       <HeroSection />
       

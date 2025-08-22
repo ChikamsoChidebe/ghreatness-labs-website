@@ -5,6 +5,8 @@ import { Providers } from './providers'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { LoadingScreen } from '@/components/LoadingScreen'
+import { generateSEO, jsonLd } from '@/lib/seo'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({ 
@@ -13,60 +15,7 @@ const poppins = Poppins({
   variable: '--font-poppins' 
 })
 
-export const metadata: Metadata = {
-  title: 'Ghreatness Labs - Empowering Businesses with Cutting-Edge Solutions',
-  description: 'Website development, software solutions, design services, marketing, and more — delivering exceptional UI/UX design, robust cybersecurity solutions, and innovative development experiences.',
-  keywords: 'web development, software development, UI/UX design, cybersecurity, digital marketing, Nigeria, Lagos',
-  authors: [{ name: 'Ghreatness Labs' }],
-  creator: 'Ghreatness Labs',
-  publisher: 'Ghreatness Labs',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://ghreatnesslabs.com.ng'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Ghreatness Labs - Empowering Businesses with Cutting-Edge Solutions',
-    description: 'Website development, software solutions, design services, marketing, and more — delivering exceptional UI/UX design, robust cybersecurity solutions, and innovative development experiences.',
-    url: 'https://ghreatnesslabs.com.ng',
-    siteName: 'Ghreatness Labs',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Ghreatness Labs',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ghreatness Labs - Empowering Businesses with Cutting-Edge Solutions',
-    description: 'Website development, software solutions, design services, marketing, and more — delivering exceptional UI/UX design, robust cybersecurity solutions, and innovative development experiences.',
-    images: ['/og-image.jpg'],
-    creator: '@ghreatnesslabs',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-  },
-}
+export const metadata: Metadata = generateSEO()
 
 export default function RootLayout({
   children,
@@ -83,8 +32,52 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#0a0a0a" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <meta name="google-site-verification" content="ghreatness-labs-verification-2024" />
+        <meta name="msvalidate.01" content="ghreatness-bing-verification-2024" />
+        <meta name="yandex-verification" content="ghreatness-yandex-verification-2024" />
       </head>
       <body className={`${inter.className} antialiased`}>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID');
+          `}
+        </Script>
+        
+        {/* Structured Data */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd.organization),
+          }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd.website),
+          }}
+        />
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd.localBusiness),
+          }}
+        />
+        
         <Providers>
           <LoadingScreen />
           <div className="relative min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
