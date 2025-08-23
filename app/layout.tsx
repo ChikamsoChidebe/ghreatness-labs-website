@@ -36,7 +36,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <meta name="google-site-verification" content="ghreatness-labs-verification-2024" />
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         <meta name="msvalidate.01" content="ghreatness-bing-verification-2024" />
         <meta name="yandex-verification" content="ghreatness-yandex-verification-2024" />
       </head>
