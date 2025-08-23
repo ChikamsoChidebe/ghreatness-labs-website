@@ -84,7 +84,6 @@ export function generateSEO({
     verification: {
       google: 'ghreatness-labs-verification-2024',
       yandex: 'ghreatness-yandex-verification-2024',
-      bing: 'ghreatness-bing-verification-2024',
     },
   }
 }
