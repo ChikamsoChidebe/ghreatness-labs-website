@@ -15,7 +15,12 @@ const poppins = Poppins({
   variable: '--font-poppins' 
 })
 
-export const metadata: Metadata = generateSEO()
+export const metadata: Metadata = {
+  ...generateSEO(),
+  verification: {
+    google: '6qrDO8eiYBLoBpCOC237iOWSnVRtD8SjIX_-0KiqwEs',
+  },
+}
 
 export default function RootLayout({
   children,
@@ -24,22 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#0a0a0a" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
-        <meta name="msvalidate.01" content="ghreatness-bing-verification-2024" />
-        <meta name="yandex-verification" content="ghreatness-yandex-verification-2024" />
-      </head>
+
       <body className={`${inter.className} antialiased`}>
         {/* Google Analytics */}
         <Script
