@@ -82,8 +82,8 @@ export function generateSEO({
       },
     },
     verification: {
-      google: 'ghreatness-labs-verification-2024',
-      yandex: 'ghreatness-yandex-verification-2024',
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.NEXT_PUBLIC_YANDEX_SITE_VERIFICATION,
     },
   }
 }
