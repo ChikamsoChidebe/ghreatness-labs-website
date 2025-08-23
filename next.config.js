@@ -5,7 +5,6 @@ const nextConfig = {
   // SEO and Performance optimizations
   experimental: {
     esmExternals: 'loose',
-    optimizeCss: true,
     scrollRestoration: true,
   },
   // Ensure proper asset prefix for development
