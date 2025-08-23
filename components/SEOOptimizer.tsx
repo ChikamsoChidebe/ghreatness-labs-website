@@ -24,12 +24,12 @@ export function SEOOptimizer({ children }: SEOOptimizerProps) {
     
     // Track Core Web Vitals
     if (typeof window !== 'undefined' && 'web-vitals' in window) {
-      import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-        getCLS(trackWebVitals)
-        getFID(trackWebVitals)
-        getFCP(trackWebVitals)
-        getLCP(trackWebVitals)
-        getTTFB(trackWebVitals)
+      import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        onCLS(trackWebVitals)
+        onINP(trackWebVitals)
+        onFCP(trackWebVitals)
+        onLCP(trackWebVitals)
+        onTTFB(trackWebVitals)
       })
     }
     
