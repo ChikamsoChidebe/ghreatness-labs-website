@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals'
+import { onCLS, onFID, onFCP, onLCP, onTTFB } from 'web-vitals'
 import { trackWebVitals } from '@/lib/performance'
 
 // Track Core Web Vitals
